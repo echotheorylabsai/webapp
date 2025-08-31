@@ -1,0 +1,392 @@
+---
+description: Guidelines for frontend development on this monorepo codebase which is web application for an AI Consulting firm Echo Theory Labs
+alwaysApply: false
+---
+## Project Overview
+
+Echo Theory Labs LLC is a AI consulting firm targeting the Raleigh-Durham Triangle area.
+This website showcases AI expertise through a modern, Framer-inspired design system with
+enterprise-grade architecture.
+
+## Current Project Architecture
+
+### Directory Organization
+
+```
+/app                          # Next.js App Router
+├── layout.tsx               # Root layout with ThemeProvider and SEO metadata
+├── page.tsx                 # Landing page orchestrating all components
+├── globals.css              # Global Tailwind styles and custom animations
+└── favicon.ico              # Site favicon
+
+/components                   # Production-ready UI components
+├── Header.tsx               # Responsive navigation with mobile menu
+├── Hero.tsx                 # AI neural network visualization hero section
+├── ValueProposition.tsx     # Interactive three-card benefits grid
+├── ServicesOverview.tsx     # Training & business solutions with testimonial
+├── LocalFocus.tsx           # Triangle area focus with Google Maps
+├── ContactSection.tsx       # React Hook Form with Zod validation
+├── Footer.tsx               # Newsletter signup and social links
+└── ThemeToggle.tsx          # Dark/light theme switcher
+
+/lib                         # Utilities and shared logic
+├── ThemeContext.tsx         # Theme management with localStorage persistence
+└── animations.ts            # Shared Framer Motion variants (NEW)
+
+/public                      # Optimized static assets
+├── robots.txt              # SEO robots configuration
+└── sitemap.xml             # Site structure for search engines
+
+/.vscode                     # Development environment configuration
+├── settings.json           # Editor preferences and tool integration
+└── extensions.json         # Recommended VS Code extensions
+
+/[config files]             # ESLint, Prettier, TypeScript, Tailwind configs
+```
+
+### Technology Stack (Current Versions)
+
+- **Next.js 15.5.2** - App Router architecture with React Server Components
+- **React 19.1.0** - Latest stable with concurrent features
+- **TypeScript 5.x** - Strict mode enabled for type safety
+- **Tailwind CSS v4** - Utility-first styling with custom design tokens
+- **Framer Motion 12.23.12** - Production animations and interactions
+- **React Hook Form 7.62.0 + Zod** - Form handling with schema validation
+
+### Key Features Implemented
+
+- ✅ **Design system** with glass morphism and gradients
+- ✅ **Responsive animations** using Framer Motion with shared variants
+- ✅ **Theme management** with dark/light mode persistence
+- ✅ **Form validation** using React Hook Form + Zod schemas
+- ✅ **SEO optimization** with metadata and structured markup
+- ✅ **Accessibility compliance** with WCAG AA standards
+- ✅ **Performance optimization** with Next.js Image and code splitting
+- ✅ **Developer experience** with ESLint, Prettier, and TypeScript
+
+## Component Development Standards
+
+### Component Architecture Pattern
+
+```tsx
+'use client'; // Only when needed for interactivity
+
+import { motion } from 'framer-motion';
+import { fadeInUp, buttonHover } from '../lib/animations'; // Use shared variants
+
+interface ComponentProps {
+  title: string;
+  // Always define proper TypeScript interfaces
+}
+
+export const ComponentName = ({ title }: ComponentProps) => {
+  return (
+    <section className="bg-gradient-to-b from-gray-900 to-black px-6 py-24 lg:py-32">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="mx-auto max-w-6xl"
+      >
+        <h2 className="text-4xl font-bold text-white lg:text-5xl">
+          <span className="text-white">{title} </span>
+          <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Highlight
+          </span>
+        </h2>
+      </motion.div>
+    </section>
+  );
+};
+```
+
+### Styling Standards (Current Implementation)
+
+```tsx
+// ✅ Consistent responsive patterns
+<div className="grid gap-8 lg:grid-cols-3">
+
+// ✅ Glass morphism pattern
+<div className="rounded-2xl border border-gray-700/50 bg-gray-800/50 backdrop-blur-sm">
+
+// ✅ Gradient text pattern
+<span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+
+// ✅ Hover effects with Framer Motion
+<motion.button
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition-all duration-200 hover:bg-blue-700"
+>
+```
+
+### Animation Implementation (Standardized)
+
+```tsx
+// Use shared animations from lib/animations.ts
+import { fadeInUp, slideInFromLeft, staggerContainer, buttonHover } from '../lib/animations';
+
+// Standard entrance animation
+<motion.div
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: '-50px' }}
+>
+
+// Staggered container for lists
+<motion.div
+  variants={staggerContainer}
+  initial="hidden"
+  whileInView="visible"
+>
+  {items.map((item, index) => (
+    <motion.div key={index} variants={fadeInUp}>
+      {/* Item content */}
+    </motion.div>
+  ))}
+</motion.div>
+```
+
+## Design System Integration
+
+### Color Palette (Implemented)
+
+```css
+/* Primary: Blue spectrum with purple accents */
+bg-blue-500, text-blue-400, from-blue-400 to-purple-400
+
+/* Brand: Teal accent */
+bg-teal-500, text-teal-400, hover:bg-teal-600
+
+/* Neutrals: Black to gray spectrum */
+bg-black, bg-gray-900, bg-gray-800/50, text-gray-300
+
+/* Gradients: Consistent patterns */
+bg-gradient-to-b from-gray-900 to-black
+bg-gradient-to-br from-blue-500 to-purple-600
+```
+
+### Typography Scale (Responsive)
+
+```css
+/* Display: Hero text */
+text-4xl lg:text-6xl
+
+/* Headlines: Section headers */
+text-3xl lg:text-5xl
+
+/* Body: Content text */
+text-xl, text-gray-300
+
+/* Responsive spacing */
+py-16 lg:py-24, px-6 lg:px-8
+```
+
+## Business Logic & Forms
+
+### Contact Form Implementation
+
+```tsx
+// ContactSection.tsx - Production pattern
+const formSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email'),
+  message: z.string().min(10, 'Message too short'),
+});
+
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm<FormData>({
+  resolver: zodResolver(formSchema),
+});
+
+const onSubmit = (data: FormData) => {
+  console.log('Lead captured:', data); // MVP: Console logging
+  // TODO: Integrate with Supabase and email notifications
+};
+```
+
+### Theme Management (Current Implementation)
+
+```tsx
+// lib/ThemeContext.tsx - Production theme system
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [isDark, setIsDark] = useState(true); // Default dark theme
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    setIsDark(storedTheme !== 'light');
+  }, []);
+
+  // Automatic theme class management
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+}
+```
+
+## Performance & SEO Standards
+
+### Next.js Optimization Patterns
+
+```tsx
+// Server components by default
+export default function ServerComponent() {
+  return <div>Server-rendered content</div>;
+}
+
+// Client components only when needed
+('use client');
+export function InteractiveComponent() {
+  return <motion.div>Interactive content</motion.div>;
+}
+
+// Image optimization
+import Image from 'next/image';
+<Image
+  src="/image.jpg"
+  alt="Descriptive alt text"
+  width={400}
+  height={300}
+  priority={isAboveFold}
+/>;
+```
+
+### SEO Implementation
+
+```tsx
+// app/layout.tsx - Metadata configuration
+export const metadata: Metadata = {
+  title: 'AI Consulting Services | Echo Theory Labs | Raleigh-Durham',
+  description: 'Boutique AI consulting firm specializing in multi-agent systems...',
+  keywords: ['AI consulting', 'Raleigh Durham', 'multi-agent systems'],
+  openGraph: {
+    title: 'Echo Theory Labs - AI Consulting',
+    description: 'Transform your business with AI solutions',
+    type: 'website',
+  },
+};
+```
+
+## Development Workflow & Code Quality
+
+### Quality Standards (Enforced)
+
+```bash
+# Pre-commit checks
+npm run type-check    # TypeScript validation
+npm run lint         # ESLint code quality
+npm run format       # Prettier formatting
+
+# Combined quality check
+npm run check-all    # All checks together
+npm run fix-all      # Auto-fix issues
+```
+
+### VS Code Integration (Configured)
+
+- **Auto-formatting** on save with Prettier
+- **ESLint** real-time error detection
+- **TypeScript** IntelliSense and error checking
+- **Tailwind CSS** class autocomplete and sorting
+- **Error Lens** inline error display
+
+## Business Context & Features
+
+### Lead Generation System
+
+- **Primary CTA**: "Schedule Free Consultation" with hover effects
+- **Secondary CTA**: "Get Your Free AI Audit"
+- **Contact Form**: React Hook Form with Zod validation
+- **Newsletter**: Footer subscription form
+
+### Local Triangle Focus
+
+- **Google Maps**: Embedded Raleigh-Durham location
+- **Local Messaging**: Triangle area business focus
+- **Regional Expertise**: Local tech ecosystem integration
+
+### Social Proof Elements
+
+- **Success Metrics**: 93% success rate, 40% efficiency improvements
+- **Testimonials**: Integrated customer feedback
+- **Professional Branding**: AI expertise positioning
+
+## Required Development Patterns
+
+### TypeScript Requirements
+
+```tsx
+// ✅ Always define interfaces
+interface ComponentProps {
+  title: string;
+  items: Array<{ id: string; name: string }>;
+  onSelect?: (id: string) => void;
+}
+
+// ✅ Use proper typing for forms
+type FormData = z.infer<typeof formSchema>;
+
+// ❌ Never use any or unknown
+// const data: any = fetchData(); // DON'T DO THIS
+```
+
+### Animation Performance
+
+```tsx
+// ✅ Use transform properties for performance
+transform: translateY(-8px)
+
+// ✅ Optimize viewport triggers
+viewport={{ once: true, margin: '-50px' }}
+
+// ✅ Use shared variants to reduce bundle size
+import { fadeInUp, buttonHover } from '../lib/animations';
+```
+
+### Accessibility Requirements
+
+```tsx
+// ✅ Semantic HTML
+<nav>, <main>, <section>, <article>
+
+// ✅ Alt attributes for images
+<img alt="AI neural network visualization" />
+
+// ✅ ARIA labels for interactive elements
+<button aria-label="Toggle mobile menu">
+
+// ✅ Focus management
+className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+```
+
+## Future Expansion Roadmap
+
+### Backend Integration (Planned)
+
+```
+/api
+├── auth/           # Authentication endpoints
+├── leads/          # Contact form and webhook handlers
+├── agents/         # Multi-agent system integrations
+└── admin/          # Content management system
+```
+
+✅ **Current Best Practices:**
+
+- Server components by default
+- Client components only for interactivity
+- Shared animation variants
+- Consistent styling patterns
+- TypeScript strict mode
+- Accessibility-first design

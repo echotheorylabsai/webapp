@@ -1,0 +1,38 @@
+{
+  "recommendations": [
+    // Core TypeScript & JavaScript
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.typescript-hero",
+
+    // React Development
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "ms-vscode.vscode-react-native",
+
+    // Code Quality & Linting
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+
+    // Tailwind CSS
+    "bradlc.vscode-tailwindcss",
+
+    // IntelliSense & Autocomplete
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.vscode-json",
+
+    // Productivity Tools
+    "gruntfuggly.todo-tree",
+    "ms-vscode.bracket-pair-colorizer-2",
+    "oderwat.indent-rainbow",
+
+    // Git Integration
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+
+    // File Management
+    "ms-vscode.hexeditor",
+    "johnpapa.vscode-peacock"
+  ]
+}

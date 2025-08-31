@@ -1,0 +1,183 @@
+@import 'tailwindcss';
+
+/* Global font import for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Tailwind CSS directives - IDE may show warnings but these work correctly */
+
+/* Root CSS variables for consistent theming */
+:root {
+  /* Light theme colors */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-muted: #737373;
+  --color-muted-foreground: #a3a3a3;
+  --color-border: #e5e5e5;
+  --color-input: #f5f5f5;
+  --color-primary: #0ea5e9;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Border radius */
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark theme colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-muted: #737373;
+  --color-muted-foreground: #a3a3a3;
+  --color-border: #262626;
+  --color-input: #171717;
+  --color-primary: #0ea5e9;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #171717;
+  --color-secondary-foreground: #fafafa;
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+}
+
+/* Base styles */
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family:
+    'DM Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
+  font-feature-settings:
+    'rlig' 1,
+    'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force font on all elements */
+* {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling and performance */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.focus-ring {
+  @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:focus:ring-offset-gray-900;
+}
+
+/* Container utilities */
+.container-framer {
+  @apply mx-auto max-w-7xl px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-24 lg:py-32;
+}
+
+/* Text effects */
+.text-gradient {
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Legacy compatibility */
+.particles {
+  background-image: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  animation: particles-move 20s linear infinite;
+}
+
+@keyframes particles-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+.transition-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-gradient {
+  background: linear-gradient(180deg, #0a0a0a 0%, #171717 100%);
+}
+
+/* Animated border for Echo Theory Labs logo */
+@keyframes border-race {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 300% 0%;
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
