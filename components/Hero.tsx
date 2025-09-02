@@ -23,18 +23,22 @@ export const Hero = () => {
           {/* Left side - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl leading-tight font-black tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-                Command AI
+              <h1 className="text-4xl leading-tight font-black tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl">
+                Harness AI,
                 <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Ignite Transformation
+                  Lead the next wave.
                 </span>
               </h1>
 
               <p className="max-w-lg text-lg leading-relaxed font-light text-purple-100 sm:text-xl">
-                Transcend AI limitations to forge your competitive fortress.
-                Design intricate agentic networks that automate sophistication,
-                secure 3-5x ROI, and catapult productivity 30-50%—unleashing
-                your vision for market conquest.
+                Get personalized AI training that future-proofs careers and
+                transforms business operations.
+                <br></br>
+                <br></br>
+                From professionals and job seekers breaking into competitive
+                markets to small-businesses and startups automating for growth—
+                master latest AI tools and agentic workflows that will make you
+                irreplaceable in an intelligence-driven world.
               </p>
             </div>
 
