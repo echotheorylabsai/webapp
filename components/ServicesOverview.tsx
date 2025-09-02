@@ -19,8 +19,8 @@ export const ServicesOverview = () => {
         'Data Analysis and Interpretation',
       ],
       icon: '/sales.png',
-      accentColor: 'from-blue-500 to-indigo-500',
-      gradient: 'from-blue-500/20 to-indigo-500/20',
+      accentColor: 'from-cyan-500 to-blue-500',
+      gradient: 'from-cyan-500/20 to-blue-500/20',
     },
     {
       id: 'marketing',
@@ -38,8 +38,8 @@ export const ServicesOverview = () => {
         'Agentic Workflows',
       ],
       icon: '/marketing.png',
-      accentColor: 'from-indigo-500 to-purple-500',
-      gradient: 'from-indigo-500/20 to-purple-500/20',
+      accentColor: 'from-blue-500 to-indigo-500',
+      gradient: 'from-blue-500/20 to-indigo-500/20',
     },
     {
       id: 'engineering',
@@ -59,8 +59,8 @@ export const ServicesOverview = () => {
         'Evaluation and Refinement',
       ],
       icon: '/engineer.png',
-      accentColor: 'from-purple-500 to-blue-500',
-      gradient: 'from-purple-500/20 to-blue-500/20',
+      accentColor: 'from-indigo-500 to-purple-500',
+      gradient: 'from-indigo-500/20 to-purple-500/20',
     },
   ];
 

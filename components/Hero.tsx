@@ -7,7 +7,7 @@ export const Hero = () => {
       className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 sm:py-24 lg:py-32"
     >
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-teal-900/20 to-emerald-900/20" />
       <div
         className="absolute inset-0"
         style={{
@@ -30,7 +30,7 @@ export const Hero = () => {
                 </span>
               </h1>
 
-              <p className="max-w-lg text-lg leading-relaxed font-light text-purple-100 sm:text-xl">
+              <p className="max-w-lg text-lg leading-relaxed font-light text-blue-100 sm:text-xl">
                 Get personalized AI training that future-proofs careers and
                 transforms business operations.
                 <br></br>
@@ -62,10 +62,10 @@ export const Hero = () => {
           {/* Right side - Video */}
           <div className="relative">
             {/* Background glow effect */}
-            <div className="absolute inset-0 scale-110 rounded-3xl bg-gradient-to-br from-purple-500 to-blue-500 opacity-20 blur-3xl" />
+            <div className="absolute inset-0 scale-110 rounded-3xl bg-gradient-to-br from-blue-500 to-teal-500 opacity-20 blur-3xl" />
 
             {/* Main video container */}
-            <div className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-800/50 to-blue-800/50 shadow-2xl backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-800/50 to-teal-800/50 shadow-2xl backdrop-blur-sm">
               <div className="aspect-square w-full">
                 <video
                   className="h-full w-full object-cover"

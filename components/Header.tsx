@@ -33,7 +33,7 @@ export const Header = () => {
         </div>
 
         {/* Glow effect */}
-        <div className="absolute inset-0 animate-[glow-pulse_2s_ease-in-out_infinite_alternate] rounded-full bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-cyan-500/30 blur-sm"></div>
+        <div className="absolute inset-0 animate-[glow-pulse_2s_linear_infinite_alternate] rounded-full bg-gradient-to-r from-blue-500/30 via-teal-500/30 to-cyan-500/30 blur-sm"></div>
 
         {/* Content (invisible but maintains spacing) */}
         <div className="invisible text-sm font-bold">Echo Theory Labs</div>
@@ -133,7 +133,7 @@ export const Header = () => {
           ))}
           <a
             href="#contact"
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-purple-600 px-6 py-2 text-sm font-bold text-white"
+            className="mt-2 inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-2 text-sm font-bold text-white"
           >
             Join waitlist
           </a>

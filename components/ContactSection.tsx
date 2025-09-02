@@ -320,7 +320,7 @@ export const ContactSection = () => {
               <span>No Sales Pitch</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-purple-400"></div>
+              <div className="h-2 w-2 rounded-full bg-teal-400"></div>
               <span>Local Triangle Focus</span>
             </div>
           </div>

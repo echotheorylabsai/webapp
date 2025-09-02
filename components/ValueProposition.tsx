@@ -15,7 +15,7 @@ export const ValueProposition = () => {
         '+30% conversion rates',
         '+20% revenue growth',
       ],
-      accentColor: 'from-purple-500 to-indigo-500',
+      accentColor: 'from-cyan-500 to-blue-500',
       visual: 'sales',
     },
     {
@@ -29,7 +29,7 @@ export const ValueProposition = () => {
         '+50% ROI improvement',
         '+30% customer retention',
       ],
-      accentColor: 'from-indigo-500 to-purple-500',
+      accentColor: 'from-blue-500 to-indigo-500',
       visual: 'marketing',
     },
     {
@@ -43,7 +43,7 @@ export const ValueProposition = () => {
         '+50% cost reduction',
         '+60% automation rate',
       ],
-      accentColor: 'from-purple-500 to-blue-500',
+      accentColor: 'from-indigo-500 to-purple-500',
       visual: 'operations',
     },
   ];
@@ -59,18 +59,18 @@ export const ValueProposition = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.3, duration: 0.6 }}
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 text-sm font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 text-sm font-bold text-white">
               {i + 1}
             </div>
-            <div className="h-1.5 flex-1 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20">
+            <div className="h-1.5 flex-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20">
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"
+                className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ delay: i * 0.3 + 0.3, duration: 0.8 }}
               />
             </div>
-            <span className="text-xs font-medium text-purple-100">{step}</span>
+            <span className="text-xs font-medium text-cyan-100">{step}</span>
           </motion.div>
         ))}
       </div>
@@ -81,7 +81,7 @@ export const ValueProposition = () => {
     <div className="relative flex h-full w-full items-center justify-center p-2">
       <div className="relative h-28 w-28">
         <motion.div
-          className="flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500"
+          className="flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500"
           animate={{
             rotate: [0, 3, -3, 0],
             scale: [1, 1.02, 1],
@@ -95,7 +95,7 @@ export const ValueProposition = () => {
         {['📧', '📱', '🎯', '📈'].map((icon, i) => (
           <motion.div
             key={icon}
-            className="absolute flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-300 to-purple-300 text-sm"
+            className="absolute flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-300 to-indigo-300 text-sm"
             style={{
               top: '50%',
               left: '50%',
@@ -123,13 +123,13 @@ export const ValueProposition = () => {
       <div className="relative h-32 w-40">
         {/* Central Processing Node */}
         <motion.div
-          className="absolute top-1/2 left-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-purple-300 bg-gradient-to-br from-purple-500 to-blue-500"
+          className="absolute top-1/2 left-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-indigo-300 bg-gradient-to-br from-indigo-500 to-purple-500"
           animate={{
             scale: [1, 1.2, 1],
             boxShadow: [
-              '0 0 0 0 rgba(147, 51, 234, 0.4)',
-              '0 0 0 8px rgba(147, 51, 234, 0)',
-              '0 0 0 0 rgba(147, 51, 234, 0)',
+              '0 0 0 0 rgba(99, 102, 241, 0.4)',
+              '0 0 0 8px rgba(99, 102, 241, 0)',
+              '0 0 0 0 rgba(99, 102, 241, 0)',
             ],
           }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -159,7 +159,7 @@ export const ValueProposition = () => {
         ].map((node, i) => (
           <motion.div
             key={`output-${i}`}
-            className="absolute h-4 w-4 rounded-full bg-gradient-to-br from-purple-400 to-blue-400"
+            className="absolute h-4 w-4 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400"
             style={{ left: node.x, top: node.y }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -174,7 +174,7 @@ export const ValueProposition = () => {
             <motion.path
               key={`input-line-${i}`}
               d={`M 26 ${y} Q 50 ${y} 76 64`}
-              stroke="rgba(147, 51, 234, 0.6)"
+              stroke="rgba(99, 102, 241, 0.6)"
               strokeWidth="2"
               fill="none"
               strokeDasharray="3,2"
@@ -188,7 +188,7 @@ export const ValueProposition = () => {
             <motion.path
               key={`output-line-${i}`}
               d={`M 92 64 Q 116 64 136 ${y}`}
-              stroke="rgba(147, 51, 234, 0.6)"
+              stroke="rgba(99, 102, 241, 0.6)"
               strokeWidth="2"
               fill="none"
               strokeDasharray="3,2"
@@ -201,7 +201,7 @@ export const ValueProposition = () => {
 
         {/* Data flow animation */}
         <motion.div
-          className="absolute h-1.5 w-1.5 rounded-full bg-purple-300"
+          className="absolute h-1.5 w-1.5 rounded-full bg-indigo-300"
           animate={{
             x: [26, 76, 92, 136],
             y: [24, 64, 64, 24],

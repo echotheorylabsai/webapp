@@ -79,7 +79,7 @@ export const LocalFocus = () => {
 
             <motion.a
               href="#businesses"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-slate-600 to-gray-600 px-8 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 sm:px-10 sm:py-4 sm:text-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
