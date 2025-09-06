@@ -216,10 +216,10 @@ export const ValueProposition = () => {
   return (
     <section
       id="businesses"
-      className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24 lg:py-32"
+      className="from-background-secondary to-background-primary relative overflow-hidden bg-gradient-to-b py-16 sm:py-24 lg:py-32"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 to-black/50" />
+      <div className="from-background-secondary/50 to-background-primary/50 absolute inset-0 bg-gradient-to-br" />
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -245,14 +245,14 @@ export const ValueProposition = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <span className="text-white">For </span>
+            <span className="text-text-primary">For </span>
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Small Business and Startups
             </span>
           </motion.h2>
 
           <motion.p
-            className="mx-auto max-w-2xl text-lg leading-relaxed font-light text-gray-400 sm:text-xl"
+            className="text-text-muted mx-auto max-w-2xl text-lg leading-relaxed font-light sm:text-xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -295,7 +295,7 @@ export const ValueProposition = () => {
 
               {/* Main card */}
               <motion.div
-                className="relative h-full rounded-2xl border border-gray-700/50 bg-gray-800/50 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:bg-gray-800/70 hover:shadow-2xl hover:shadow-blue-500/10 sm:p-8"
+                className="border-border-primary bg-background-secondary hover:bg-background-tertiary hover:shadow-accent-primary/10 relative h-full rounded-2xl border p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl sm:p-8"
                 whileHover={{
                   y: -8,
                   transition: { duration: 0.3, ease: 'easeOut' },
@@ -304,7 +304,7 @@ export const ValueProposition = () => {
                 {/* Fixed height container to ensure consistent card heights */}
                 <div className="flex h-full flex-col">
                   {/* Visual Section - Fixed height */}
-                  <div className="mb-6 flex h-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-gray-600/30 bg-gray-700/30">
+                  <div className="border-border-secondary bg-background-tertiary mb-6 flex h-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border">
                     <div className="flex h-full w-full items-center justify-center">
                       {solution.visual === 'sales' && <SalesVisual />}
                       {solution.visual === 'marketing' && <MarketingVisual />}
@@ -315,7 +315,7 @@ export const ValueProposition = () => {
                   {/* Content Section - Flexible height but contained */}
                   <div className="flex flex-1 flex-col">
                     {/* Title and Subtitle - Fixed height */}
-                    <motion.h3 className="mb-4 flex-shrink-0 text-xl font-bold text-white sm:text-2xl">
+                    <motion.h3 className="text-text-primary mb-4 flex-shrink-0 text-xl font-bold sm:text-2xl">
                       {solution.title}
                       <span
                         className={`block bg-gradient-to-r text-base sm:text-lg ${solution.accentColor} bg-clip-text text-transparent`}
@@ -327,7 +327,7 @@ export const ValueProposition = () => {
                     {/* Description - Flexible height but contained */}
                     <div className="mb-4 min-h-[60px] flex-1 sm:min-h-[80px]">
                       <motion.div
-                        className="text-sm leading-relaxed text-gray-300 sm:text-base"
+                        className="text-text-secondary text-sm leading-relaxed sm:text-base"
                         dangerouslySetInnerHTML={{
                           __html: solution.description,
                         }}
@@ -339,7 +339,7 @@ export const ValueProposition = () => {
                     <div className="flex-shrink-0 space-y-4">
                       {/* Impact metrics */}
                       <div className="space-y-2">
-                        <h5 className="text-center text-xs font-semibold tracking-wide text-white uppercase sm:text-sm">
+                        <h5 className="text-text-primary text-center text-xs font-semibold tracking-wide uppercase sm:text-sm">
                           Key Impact
                         </h5>
                         <div className="flex flex-wrap justify-center gap-2">
@@ -410,7 +410,7 @@ export const ValueProposition = () => {
         >
           <div className="mb-8 text-center">
             <motion.h3
-              className="mb-3 text-2xl font-bold text-white sm:text-3xl"
+              className="text-text-primary mb-3 text-2xl font-bold sm:text-3xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -419,10 +419,13 @@ export const ValueProposition = () => {
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Seamless Integration
               </span>
-              <span className="text-white"> with Your Favorite Tools</span>
+              <span className="text-text-primary">
+                {' '}
+                with Your Favorite Tools
+              </span>
             </motion.h3>
             <motion.p
-              className="mx-auto max-w-2xl text-base text-gray-400"
+              className="text-text-muted mx-auto max-w-2xl text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -435,7 +438,7 @@ export const ValueProposition = () => {
 
           {/* Modern Animated Logo Grid */}
           <div className="relative overflow-hidden">
-            <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.02] to-white/[0.06] p-8 backdrop-blur-sm">
+            <div className="border-border-primary from-background-secondary/[0.02] to-background-secondary/[0.06] relative rounded-2xl border bg-gradient-to-br p-8 backdrop-blur-sm">
               {/* Top Row - Slides Right */}
               <div className="mb-8">
                 <motion.div
@@ -517,7 +520,7 @@ export const ValueProposition = () => {
                         />
                       </div>
                       <motion.p
-                        className="mt-2 text-center text-xs font-medium text-gray-300 transition-colors duration-300 group-hover:text-white"
+                        className="text-text-secondary group-hover:text-text-primary mt-2 text-center text-xs font-medium transition-colors duration-300"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{
@@ -622,7 +625,7 @@ export const ValueProposition = () => {
                         />
                       </div>
                       <motion.p
-                        className="mt-2 text-center text-xs font-medium text-gray-300 transition-colors duration-300 group-hover:text-white"
+                        className="text-text-secondary group-hover:text-text-primary mt-2 text-center text-xs font-medium transition-colors duration-300"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{
@@ -655,7 +658,7 @@ export const ValueProposition = () => {
                   <span className="text-sm font-medium text-green-400">
                     200+ Integrations
                   </span>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-text-secondary text-sm">
                     Endless Possibilities
                   </span>
                 </motion.div>

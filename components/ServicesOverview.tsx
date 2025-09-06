@@ -88,7 +88,7 @@ export const ServicesOverview = () => {
   return (
     <section
       id="professionals"
-      className="bg-gradient-to-b from-black to-gray-900 px-4 py-16 sm:px-6 sm:py-24 lg:py-32"
+      className="from-background-primary to-background-secondary bg-gradient-to-b px-4 py-16 sm:px-6 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
         {/* Hero Section */}
@@ -99,13 +99,13 @@ export const ServicesOverview = () => {
           viewport={{ once: true }}
           className="mb-16 text-center sm:mb-20"
         >
-          <motion.h2 className="mb-4 text-4xl font-black tracking-tight text-white sm:mb-6 sm:text-5xl lg:text-6xl">
-            <span className="text-white">For </span>
+          <motion.h2 className="text-text-primary mb-4 text-4xl font-black tracking-tight sm:mb-6 sm:text-5xl lg:text-6xl">
+            <span className="text-text-primary">For </span>
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Professionals
             </span>
           </motion.h2>
-          <motion.p className="mx-auto max-w-3xl px-4 text-lg leading-relaxed font-light text-gray-300 sm:text-xl">
+          <motion.p className="text-text-secondary mx-auto max-w-3xl px-4 text-lg leading-relaxed font-light sm:text-xl">
             Personalized AI training that enhances your existing workflows, not
             replaces them. Learn the latest GenAI and Agentic solutions relevant
             to your role.
@@ -115,7 +115,7 @@ export const ServicesOverview = () => {
         {/* Professional Tracks */}
         <div className="mb-16 sm:mb-24">
           <motion.h3
-            className="mb-12 text-center text-2xl font-bold text-white sm:mb-16 sm:text-3xl"
+            className="text-text-primary mb-12 text-center text-2xl font-bold sm:mb-16 sm:text-3xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -140,7 +140,7 @@ export const ServicesOverview = () => {
                 />
 
                 {/* Main card */}
-                <div className="relative h-full rounded-3xl border border-gray-700/50 bg-gray-900/80 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-gray-600/50 hover:bg-gray-800/80 hover:shadow-2xl hover:shadow-blue-500/10 sm:p-8">
+                <div className="border-border-primary bg-background-secondary hover:border-border-secondary hover:bg-background-tertiary hover:shadow-accent-primary/10 relative h-full rounded-3xl border p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl sm:p-8">
                   {/* Fixed height container to ensure consistent card heights */}
                   <div className="flex h-full flex-col">
                     {/* Header Section - Fixed height */}
@@ -154,7 +154,7 @@ export const ServicesOverview = () => {
                           className="h-full w-full object-cover"
                         />
                       </div>
-                      <h4 className="mb-2 text-xl font-bold text-white sm:text-2xl">
+                      <h4 className="text-text-primary mb-2 text-xl font-bold sm:text-2xl">
                         {track.title}
                       </h4>
                       <p
@@ -167,14 +167,14 @@ export const ServicesOverview = () => {
                     {/* Description Section - Flexible height but contained */}
                     <div className="mb-6 flex min-h-[80px] flex-1 items-center sm:min-h-[100px]">
                       <div
-                        className="text-center text-sm leading-relaxed text-gray-300 sm:text-base"
+                        className="text-text-secondary text-center text-sm leading-relaxed sm:text-base"
                         dangerouslySetInnerHTML={{ __html: track.description }}
                       />
                     </div>
 
                     {/* Key Skills Section - Fixed height */}
                     <div className="mb-6 flex-shrink-0 space-y-3">
-                      <h5 className="text-center text-xs font-semibold tracking-wide text-white uppercase sm:text-sm">
+                      <h5 className="text-text-primary text-center text-xs font-semibold tracking-wide uppercase sm:text-sm">
                         Key Skills You&apos;ll Master
                       </h5>
                       <div className="flex flex-wrap justify-center gap-2">
@@ -202,7 +202,7 @@ export const ServicesOverview = () => {
         {/* Our Approach Section */}
         <div className="text-center">
           <motion.h3
-            className="mb-12 text-2xl font-bold text-white sm:mb-16 sm:text-3xl"
+            className="text-text-primary mb-12 text-2xl font-bold sm:mb-16 sm:text-3xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -221,7 +221,7 @@ export const ServicesOverview = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="relative h-full rounded-2xl border border-gray-700/50 bg-gray-800/50 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-gray-600/50 hover:bg-gray-800/70 hover:shadow-xl hover:shadow-blue-500/10">
+                <div className="border-border-primary bg-background-secondary hover:border-border-secondary hover:bg-background-tertiary hover:shadow-accent-primary/10 relative h-full rounded-2xl border p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl">
                   {/* Fixed height container for consistent alignment */}
                   <div className="flex h-full flex-col">
                     {/* Icon Section - Fixed height */}
@@ -230,13 +230,13 @@ export const ServicesOverview = () => {
                     </div>
 
                     {/* Title Section - Fixed height */}
-                    <h4 className="mb-3 flex-shrink-0 text-center text-lg font-bold text-white sm:text-xl">
+                    <h4 className="text-text-primary mb-3 flex-shrink-0 text-center text-lg font-bold sm:text-xl">
                       {feature.title}
                     </h4>
 
                     {/* Description Section - Flexible height but contained */}
                     <div className="flex min-h-[80px] flex-1 items-center sm:min-h-[100px]">
-                      <p className="text-center text-sm leading-relaxed text-gray-300 sm:text-base">
+                      <p className="text-text-secondary text-center text-sm leading-relaxed sm:text-base">
                         {feature.description}
                       </p>
                     </div>

@@ -13,8 +13,8 @@
 
 ### Prerequisites
 
-- Node.js 18.17+
-- npm 9+
+- Node.js 22.x
+- npm 10.x
 
 ### Installation
 
@@ -53,8 +53,9 @@ echo-theory-labs/
 │   ├── Footer.tsx               # Social links & newsletter
 │   └── ThemeToggle.tsx          # Dark/light theme switcher
 ├── lib/                         # Utilities & contexts
-│   ├── ThemeContext.tsx         # Theme management
-│   └── animations.ts            # Shared animation variants
+│   ├── ThemeContext.tsx         # Theme management & context
+│   ├── themes.ts                # Theme definitions & CSS variables
+│   └── design-tokens.ts         # Semantic design token mappings
 ├── public/                      # Static assets
 │   ├── robots.txt              # SEO robots configuration
 │   └── sitemap.xml             # Site structure for SEO
@@ -76,14 +77,15 @@ echo-theory-labs/
 
 ### Styling & Animation
 
-- **Tailwind CSS v4** - Utility-first CSS framework
-- **Framer Motion 12.23.12** - Production-ready motion library
-- **Custom Design System** - Framer-inspired components
+- **Tailwind CSS v4** - Utility-first CSS framework with theme-aware utilities
+- **Framer Motion 11.3.28** - Production-ready motion library
+- **CSS Custom Properties** - Theme-driven styling with semantic design tokens
+- **Theme System** - Scalable light/dark theme architecture with custom fonts
 
 ### Form Handling & Validation
 
-- **React Hook Form 7.62.0** - Performant form library
-- **Zod** - TypeScript-first schema validation
+- **React Hook Form 7.52.2** - Performant form library
+- **Zod 4.0.0** - TypeScript-first schema validation
 
 ### Development Tools
 
@@ -146,31 +148,41 @@ echo-theory-labs/
 
 #### `lib/ThemeContext.tsx`
 
-- Dark/light theme management
+- Theme state management (light/dark)
 - LocalStorage persistence
-- System preference detection
+- CSS custom property application
+- Theme class management for Tailwind
 
-#### `lib/animations.ts`
+#### `lib/themes.ts`
 
-- Reusable Framer Motion variants
-- Consistent animation timing
-- Performance-optimized transitions
+- Theme definitions with CSS custom properties
+- Color, typography, and spacing tokens
+- Type-safe theme names and values
+- HSL color format for better manipulation
+
+#### `lib/design-tokens.ts`
+
+- Semantic design token mappings
+- Type-safe token definitions
+- Centralized design system values
+- Theme-agnostic component styling
 
 ## 🎨 Design System
 
-### Color Palette
+### Theme System
 
-- **Primary**: Blue spectrum (#0ea5e9)
-- **Brand**: Teal (#00bfa5)
-- **Gradients**: Blue to purple combinations
-- **Neutrals**: Sophisticated gray scale
+- **Default Theme**: Dark (DM Sans font family with modern, tech-focused aesthetics)
+- **Light Theme**: Inter font family with modern, clean, professional styling
+- **Semantic Colors**: Theme-aware color tokens (background-primary, text-primary, etc.)
+- **HSL Format**: Better color manipulation and accessibility
+- **CSS Custom Properties**: Runtime theme switching without component changes
 
 ### Typography
 
-- **Display**: Responsive hero text (40-96px)
-- **Headline**: Section headers (30-64px)
-- **Body**: Standard content (16-18px)
-- **Inter Font**: Modern, professional typeface
+- **Default Theme**: DM Sans - Tech-focused, contemporary
+- **Light Theme**: Inter - Modern, clean, professional
+- **Responsive**: Fluid typography scaling (40-96px display, 30-64px headlines)
+- **Theme-Aware**: Font families automatically switch with themes
 
 ### Animation Patterns
 
@@ -204,9 +216,10 @@ echo-theory-labs/
 ### User Experience
 
 - **Smooth Animations**: 60fps Framer Motion
-- **Theme Switching**: Dark/light mode persistence
-- **Form Validation**: Real-time error feedback
+- **Theme Switching**: Dark/light mode with font family changes
+- **Form Validation**: Real-time error feedback with theme-aware styling
 - **Mobile Responsive**: Touch-friendly interactions
+- **Accessibility**: WCAG AA compliant with proper contrast ratios
 
 ### Business Features
 
@@ -245,10 +258,11 @@ npm run fix-all      # Auto-fix all issues
 
 ### Tailwind Classes
 
-- **Consistent patterns**: `bg-gray-900`, `text-white`
+- **Theme-aware patterns**: `bg-background-primary`, `text-text-primary`
+- **Semantic naming**: `border-border-primary`, `text-text-secondary`
 - **Responsive prefixes**: `md:text-4xl`, `lg:grid-cols-3`
-- **Hover states**: `hover:bg-blue-700`, `hover:scale-1.02`
-- **Glass morphism**: `backdrop-blur-sm`, `bg-gray-800/50`
+- **Hover states**: `hover:bg-background-secondary`, `hover:scale-1.02`
+- **Glass morphism**: `backdrop-blur-sm`, `bg-background-secondary/50`
 
 ### Animation Implementation
 
@@ -269,10 +283,16 @@ const fadeInUp = {
 
 ```tsx
 // Access theme context
-const { isDark, toggleTheme } = useTheme();
+const { theme, setTheme, isDark, toggleTheme } = useTheme();
 
-// Theme-aware styling
-<div className={isDark ? 'bg-black' : 'bg-white'}>Theme-aware content</div>;
+// Theme-aware styling (automatic via CSS custom properties)
+<div className="bg-background-primary text-text-primary">
+  Theme-aware content that automatically adapts
+</div>;
+
+// Theme switching
+<button onClick={() => setTheme('light')}>Light Theme</button>
+<button onClick={() => setTheme('dark')}>Dark Theme</button>
 ```
 
 ## 🧪 Development Environment
@@ -330,8 +350,10 @@ npm start           # Serves production build locally
 
 ## 📚 Documentation
 
-- **[DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md)**: Complete design guidelines
+- **[DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md)**: Complete design system guide with theme
+  architecture
 - **[DEV_SETUP.md](./docs/DEV_SETUP.md)**: Development environment setup
+- **Theme System**: Comprehensive guide for adding new themes and styling patterns
 - **Component Documentation**: JSDoc comments in source code
 
 ## 🤝 Contributing
@@ -346,10 +368,12 @@ npm start           # Serves production build locally
 ### Code Review Checklist
 
 - [ ] TypeScript types properly defined
-- [ ] Components follow design system patterns
+- [ ] Components use semantic theme-aware classes
+- [ ] No hard-coded colors (use `bg-background-primary` not `bg-white`)
 - [ ] Animations are performance-optimized
 - [ ] Responsive design implemented
 - [ ] Accessibility standards met
+- [ ] Theme compatibility verified
 
 ## 📞 Business Context
 

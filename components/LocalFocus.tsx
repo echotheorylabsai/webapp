@@ -6,7 +6,7 @@ export const LocalFocus = () => {
   return (
     <section
       id="about"
-      className="bg-gradient-to-b from-gray-900 to-black px-6 py-24 text-center lg:py-32"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-24 text-center lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -20,7 +20,7 @@ export const LocalFocus = () => {
           >
             <div className="space-y-6">
               <motion.h2
-                className="text-5xl leading-tight font-black tracking-tight text-white lg:text-6xl"
+                className="text-text-primary text-5xl leading-tight font-black tracking-tight lg:text-6xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -33,7 +33,7 @@ export const LocalFocus = () => {
               </motion.h2>
 
               <motion.p
-                className="text-xl leading-relaxed font-light text-gray-300"
+                className="text-text-secondary text-xl leading-relaxed font-light"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -62,16 +62,16 @@ export const LocalFocus = () => {
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}
-                    className="rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm"
+                    className="border-border-primary bg-background-secondary/5 rounded-xl border p-4 text-center backdrop-blur-sm"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="text-2xl font-bold text-white">
+                    <div className="text-text-primary text-2xl font-bold">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
+                    <div className="text-text-muted text-sm">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -112,7 +112,7 @@ export const LocalFocus = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="h-[576px] w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/20 to-white/5 backdrop-blur-sm">
+            <div className="border-border-primary from-background-primary/20 to-background-secondary/5 h-[576px] w-full overflow-hidden rounded-3xl border bg-gradient-to-br backdrop-blur-sm">
               <video
                 className="h-full w-full object-cover"
                 autoPlay

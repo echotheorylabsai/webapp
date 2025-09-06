@@ -68,17 +68,17 @@ export const FAQ = () => {
   return (
     <section
       id="faq"
-      className="bg-gradient-to-b from-gray-900 to-black px-6 py-16 lg:py-20"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-16 lg:py-20"
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
-          className="mb-8 text-center font-mono text-5xl font-black tracking-tight text-white sm:mb-12 lg:text-6xl"
+          className="text-text-primary mb-8 text-center text-5xl font-black tracking-tight sm:mb-12 lg:text-6xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-white">Frequently Asked </span>
+          <span className="text-text-primary">Frequently Asked </span>
           <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Questions
           </span>
@@ -96,15 +96,15 @@ export const FAQ = () => {
             >
               <motion.button
                 onClick={() => toggleFAQ(index)}
-                className="w-full rounded-xl border border-gray-700/50 bg-gray-800/50 p-4 text-left shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-gray-600/50 hover:bg-gray-800/70 hover:shadow-xl hover:shadow-blue-500/10 sm:p-5"
+                className="border-border-primary bg-background-secondary hover:border-border-secondary hover:bg-background-tertiary hover:shadow-accent-primary/10 w-full rounded-xl border p-4 text-left shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl sm:p-5"
                 whileHover={{ y: -2 }}
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="font-mono text-base font-semibold text-white sm:text-lg">
+                  <h3 className="text-text-primary text-base font-semibold sm:text-lg">
                     {faq.question}
                   </h3>
                   <motion.svg
-                    className="h-4 w-4 text-gray-400 transition-transform duration-300 sm:h-5 sm:w-5"
+                    className="text-text-muted h-4 w-4 transition-transform duration-300 sm:h-5 sm:w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -125,7 +125,7 @@ export const FAQ = () => {
                   animate={{ height: openIndex === index ? 'auto' : 0 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
-                  <p className="mt-4 pt-2 text-sm leading-relaxed text-gray-300 sm:text-base">
+                  <p className="text-text-secondary mt-4 pt-2 text-sm leading-relaxed sm:text-base">
                     {faq.answer}
                   </p>
                 </motion.div>

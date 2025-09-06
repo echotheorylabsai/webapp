@@ -8,12 +8,24 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      // Modern font family
+      // Theme-aware font family
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        sans: ['var(--font-family-primary)'],
       },
-      // Simplified color palette using standard Tailwind colors
+      // Theme-aware colors using CSS custom properties
       colors: {
+        // Theme-aware semantic colors
+        'background-primary': 'hsl(var(--color-background-primary))',
+        'background-secondary': 'hsl(var(--color-background-secondary))',
+        'background-tertiary': 'hsl(var(--color-background-tertiary))',
+        'text-primary': 'hsl(var(--color-text-primary))',
+        'text-secondary': 'hsl(var(--color-text-secondary))',
+        'text-muted': 'hsl(var(--color-text-muted))',
+        'border-primary': 'hsl(var(--color-border-primary))',
+        'border-secondary': 'hsl(var(--color-border-secondary))',
+        'accent-primary': 'hsl(var(--color-accent-primary))',
+        'accent-secondary': 'hsl(var(--color-accent-secondary))',
+
         // Keep existing teal for branding
         teal: {
           50: '#f0fdfa',

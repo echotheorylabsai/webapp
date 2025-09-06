@@ -9,7 +9,7 @@ import { ValueProposition } from '../components/ValueProposition';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <main className="from-background-secondary via-background-primary to-background-secondary min-h-screen bg-gradient-to-b">
       <Header />
       <Hero />
       <ServicesOverview />

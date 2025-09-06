@@ -8,7 +8,7 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between bg-transparent px-6 py-4">
+    <header className="bg-background-primary/80 sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md">
       {/* Logo - Left oval container with animated border */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -17,11 +17,11 @@ export const Header = () => {
       >
         {/* Animated border background */}
         <div className="absolute inset-0 animate-[border-race_3s_linear_infinite] rounded-full bg-gradient-to-r from-purple-500 via-cyan-500 via-pink-500 to-purple-500 bg-[length:300%_100%] p-[2px]">
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-black/80">
+          <div className="bg-background-secondary flex h-full w-full items-center justify-center rounded-full">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-sm font-bold text-white drop-shadow-lg"
+              className="text-text-primary text-sm font-bold drop-shadow-lg"
               style={{
                 textShadow:
                   '0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3)',
@@ -36,14 +36,16 @@ export const Header = () => {
         <div className="absolute inset-0 animate-[glow-pulse_2s_linear_infinite_alternate] rounded-full bg-gradient-to-r from-blue-500/30 via-teal-500/30 to-cyan-500/30 blur-sm"></div>
 
         {/* Content (invisible but maintains spacing) */}
-        <div className="invisible text-sm font-bold">Echo Theory Labs</div>
+        <div className="text-text-primary invisible text-sm font-bold">
+          Echo Theory Labs
+        </div>
       </motion.div>
 
       {/* Navigation - Center oval container */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="hidden rounded-full border border-white/10 bg-black/80 px-8 py-3 shadow-lg backdrop-blur-md md:flex"
+        className="border-border-primary bg-background-secondary hidden rounded-full border px-8 py-3 shadow-lg backdrop-blur-md md:flex"
       >
         <nav className="flex space-x-8">
           {[
@@ -57,7 +59,7 @@ export const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-bold text-gray-300 transition-colors duration-200 hover:text-white"
+              className="text-text-secondary hover:text-text-primary text-sm font-bold transition-colors duration-200"
             >
               {item.name}
             </a>
@@ -74,7 +76,7 @@ export const Header = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden rounded-full border border-white/10 bg-black/80 shadow-lg backdrop-blur-md md:block"
+          className="border-border-primary bg-background-secondary hidden rounded-full border shadow-lg backdrop-blur-md md:block"
         >
           <motion.a
             href="#contact"
@@ -88,7 +90,7 @@ export const Header = () => {
 
         {/* Mobile menu button */}
         <button
-          className="rounded-full border border-white/10 bg-black/80 p-3 text-white backdrop-blur-md md:hidden"
+          className="border-border-primary bg-background-secondary text-text-primary rounded-full border p-3 backdrop-blur-md md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
@@ -113,7 +115,7 @@ export const Header = () => {
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border border-white/10 bg-black/90 py-4 backdrop-blur-md md:hidden"
+          className="border-border-primary bg-background-secondary absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border py-4 backdrop-blur-md md:hidden"
         >
           {[
             { name: 'Home', href: '#home' },
@@ -126,7 +128,7 @@ export const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              className="py-2 font-bold text-gray-300 transition-colors duration-200 hover:text-white"
+              className="text-text-secondary hover:text-text-primary py-2 font-bold transition-colors duration-200"
             >
               {item.name}
             </a>

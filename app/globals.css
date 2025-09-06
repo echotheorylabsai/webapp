@@ -1,23 +1,38 @@
 @import 'tailwindcss';
 
-/* Global font import for modern typography */
+/* Global font imports for theme-specific typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Tailwind CSS directives - IDE may show warnings but these work correctly */
 
 /* Root CSS variables for consistent theming */
 :root {
-  /* Light theme colors */
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  /* Dark theme (default) */
+  --color-background-primary: 0 0% 4%;
+  --color-background-secondary: 0 0% 6%;
+  --color-background-tertiary: 0 0% 8%;
+  --color-text-primary: 0 0% 98%;
+  --color-text-secondary: 0 0% 70%;
+  --color-text-muted: 0 0% 50%;
+  --color-border-primary: 0 0% 15%;
+  --color-border-secondary: 0 0% 20%;
+  --color-accent-primary: 217 91% 60%;
+  --color-accent-secondary: 262 83% 58%;
+  --font-family-primary:
+    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Legacy variables for backward compatibility */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
   --color-muted: #737373;
   --color-muted-foreground: #a3a3a3;
-  --color-border: #e5e5e5;
-  --color-input: #f5f5f5;
+  --color-border: #262626;
+  --color-input: #171717;
   --color-primary: #0ea5e9;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #f5f5f5;
-  --color-secondary-foreground: #171717;
+  --color-secondary: #171717;
+  --color-secondary-foreground: #fafafa;
   --color-accent: #8b5cf6;
   --color-accent-foreground: #ffffff;
   --color-destructive: #ef4444;
@@ -33,18 +48,32 @@
   --radius: 0.5rem;
 }
 
-.dark {
-  /* Dark theme colors */
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
+.theme-light {
+  /* Light theme colors */
+  --color-background-primary: 0 0% 100%;
+  --color-background-secondary: 0 0% 98%;
+  --color-background-tertiary: 0 0% 96%;
+  --color-text-primary: 0 0% 9%;
+  --color-text-secondary: 0 0% 45%;
+  --color-text-muted: 0 0% 65%;
+  --color-border-primary: 0 0% 90%;
+  --color-border-secondary: 0 0% 85%;
+  --color-accent-primary: 217 91% 60%;
+  --color-accent-secondary: 262 83% 58%;
+  --font-family-primary:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Legacy variables for backward compatibility */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
   --color-muted: #737373;
   --color-muted-foreground: #a3a3a3;
-  --color-border: #262626;
-  --color-input: #171717;
+  --color-border: #e5e5e5;
+  --color-input: #f5f5f5;
   --color-primary: #0ea5e9;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #171717;
-  --color-secondary-foreground: #fafafa;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
   --color-accent: #8b5cf6;
   --color-accent-foreground: #ffffff;
   --color-destructive: #ef4444;
@@ -57,25 +86,24 @@
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family:
-    'DM Sans',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif !important;
+  background-color: hsl(var(--color-background-primary));
+  color: hsl(var(--color-text-primary));
+  font-family: var(--font-family-primary) !important;
   font-feature-settings:
     'rlig' 1,
     'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    font-family 0.3s ease;
 }
 
 /* Force font on all elements */
 * {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-family-primary) !important;
+  transition: font-family 0.3s ease;
 }
 
 html {
@@ -104,7 +132,11 @@ html {
 
 /* Text effects */
 .text-gradient {
-  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-accent-primary)),
+    hsl(var(--color-accent-secondary))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

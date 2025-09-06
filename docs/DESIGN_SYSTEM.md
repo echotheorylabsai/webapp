@@ -1,435 +1,385 @@
-# Echo Theory Labs Design System
+# Echo Theory Labs - Design System
 
-## Current Implementation Overview
+> Comprehensive guide for developers working with the Echo Theory Labs design system, theme
+> architecture, and styling patterns.
 
-This document outlines the comprehensive design system for Echo Theory Labs' AI consulting website,
-built with Next.js 15, Tailwind CSS v4, and Framer Motion.
+## 📋 Table of Contents
 
-## 🎨 Color Palette
+- [Overview](#overview)
+- [Theme Architecture](#theme-architecture)
+- [Design Tokens](#design-tokens)
+- [Component Styling Patterns](#component-styling-patterns)
+- [Theme Management](#theme-management)
+- [Adding New Themes](#adding-new-themes)
+- [Best Practices](#best-practices)
+- [Common Patterns](#common-patterns)
+- [Troubleshooting](#troubleshooting)
 
-### Primary Colors
+## 🎯 Overview
 
-```css
-/* Primary Blue Spectrum - Currently Used */
-primary-50:  #f0f9ff
-primary-100: #e0f2fe
-primary-200: #bae6fd
-primary-300: #7dd3fc
-primary-400: #38bdf8
-primary-500: #0ea5e9  /* Main primary */
-primary-600: #0284c7
-primary-700: #0369a1
-primary-800: #075985
-primary-900: #0c4a6e
+The Echo Theory Labs design system is built on a **theme-first architecture** that enables:
+
+- **Scalable theming**: Easy addition of new themes without component changes
+- **Consistent styling**: Centralized design tokens and semantic naming
+- **Performance**: CSS custom properties with minimal runtime overhead
+- **Developer experience**: Type-safe theme management with IntelliSense support
+
+### Core Principles
+
+1. **Theme-driven**: All styling decisions flow from theme definitions
+2. **Semantic naming**: Use meaningful names like `text-primary` not `text-gray-900`
+3. **Component agnostic**: Components don't know about specific theme values
+4. **Global propagation**: Theme changes cascade from root to all components
+
+## 🏗️ Theme Architecture
+
+### File Structure
+
+```
+lib/
+├── themes.ts              # Theme definitions with CSS custom properties
+├── design-tokens.ts       # Semantic design token mappings
+└── ThemeContext.tsx       # React context for theme management
+
+app/
+└── globals.css           # Global styles and CSS custom properties
+
+tailwind.config.js        # Tailwind configuration with theme-aware utilities
 ```
 
-### Neutral Grays
+### Theme Flow
 
-```css
-/* Sophisticated Neutral Palette - Currently Used */
-neutral-50:  #fafafa
-neutral-100: #f5f5f5
-neutral-200: #e5e5e5
-neutral-300: #d4d4d4
-neutral-400: #a3a3a3
-neutral-500: #737373
-neutral-600: #525252
-neutral-700: #404040
-neutral-800: #262626
-neutral-900: #171717
-neutral-950: #0a0a0a
+```mermaid
+graph TD
+    A[Theme Selection] --> B[ThemeContext]
+    B --> C[CSS Custom Properties]
+    C --> D[Global CSS Variables]
+    D --> E[Tailwind Utilities]
+    E --> F[Component Styles]
+
+    G[themes.ts] --> B
+    H[design-tokens.ts] --> I[Type Safety]
+    I --> B
 ```
 
-### Accent Colors
+## 🎨 Design Tokens
 
-```css
-/* Vibrant Accent Palette - Currently Used */
-accent-purple: #8b5cf6
-accent-pink:   #ec4899
-accent-green:  #10b981
-accent-orange: #f59e0b
-accent-red:    #ef4444
+### Color System
+
+Our color system uses **semantic naming** with HSL values for better manipulation:
+
+[lib/themes.ts](../lib/themes.ts)
+
+### Typography System
+
+````typescript
+[lib/design-tokens.ts](../lib/design-tokens.ts)
+
+## 🧩 Component Styling Patterns
+
+### ✅ DO: Use Semantic Classes
+
+```tsx
+// ✅ Good - Semantic and theme-aware
+<div className="bg-background-primary text-text-primary border-border-primary">
+  <h1 className="text-text-primary">Title</h1>
+  <p className="text-text-secondary">Description</p>
+</div>
+````
+
+### ❌ DON'T: Use Hard-coded Colors
+
+```tsx
+// ❌ Bad - Hard-coded and not theme-aware
+<div className="bg-white text-black border-gray-300">
+  <h1 className="text-gray-900">Title</h1>
+  <p className="text-gray-600">Description</p>
+</div>
 ```
 
-### Brand Color
+### Theme-Aware Component Example
 
-```css
-/* Echo Theory Labs Signature - Currently Used */
-teal: #00bfa5;
-```
-
-## 📝 Typography Hierarchy
-
-### Font Scale
-
-```css
-/* Responsive Typography - Currently Implemented */
-text-display:   clamp(2.5rem, 8vw, 6rem)    /* 40-96px */
-text-headline:  clamp(1.875rem, 6vw, 4rem)  /* 30-64px */
-text-title:     clamp(1.5rem, 4vw, 2.25rem) /* 24-36px */
-text-body-large: 1.125rem (18px)
-text-body:      1rem (16px)
-text-caption:   0.875rem (14px)
-```
-
-### Font Weights
-
-```css
-font-light:    300
-font-normal:   400
-font-medium:   500
-font-semibold: 600
-font-bold:     700
-font-extrabold: 800
-font-black:    900
-```
-
-### Typography Classes
-
-```css
-/* Custom Typography Utilities - Currently Available */
-.text-display    /* Large hero text with tight line-height */
-.text-headline   /* Section headers */
-.text-title      /* Card titles, subsections */
-.text-body-large /* Large body text */
-.text-body       /* Standard body text */
-.text-caption    /* Small text, captions */
-.text-gradient   /* Blue-purple gradient text */
-.text-shimmer    /* Animated shimmer effect */
-```
-
-## 🎭 Component Styles
-
-### Buttons
-
-```css
-/* Button Variants - Currently Implemented */
-.btn-primary     /* Primary CTA - blue gradient */
-.btn-secondary   /* Secondary action - neutral */
-.btn-ghost       /* Subtle hover - transparent */
-.btn-accent      /* Purple accent - special actions */
-```
-
-### Cards
-
-```css
-/* Card Components - Currently Available */
-.card            /* Base card with border and shadow */
-.card-hover      /* Hover lift effect */
-.card-glow       /* Glowing border on hover */
-```
-
-### Form Elements
-
-```css
-/* Input Styling - Currently Available */
-.input           /* Consistent form input styling */
-.focus-ring      /* Accessible focus indicators */
-```
-
-## ✨ Animation Patterns
-
-### Framer Motion Variants
-
-```javascript
-// Staggered container animations - Currently Used
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      duration: 0.6,
-    },
-  },
-};
-
-// Item entrance animations - Currently Used
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 1, 0.5, 1], // Framer easing
-    },
-  },
-};
-
-// Button interactions - Currently Used
-const buttonVariants = {
-  hover: {
-    scale: 1.02,
-    boxShadow: '0 0 40px rgba(14, 165, 233, 0.6)',
-    transition: { duration: 0.2, ease: 'easeOut' },
-  },
-  tap: {
-    scale: 0.98,
-    transition: { duration: 0.1 },
-  },
-};
-```
-
-### CSS Animations
-
-```css
-/* Keyframe Animations - Currently Available */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes particles-move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 20px 20px;
-  }
-}
-```
-
-## 🌈 Background Patterns
-
-### Gradient Collections
-
-```css
-/* Framer-Inspired Gradients - Currently Available */
-.primary-gradient   /* Blue to purple */
-.accent-gradient    /* Pink to purple */
-.animated-gradient  /* Shifting multi-color */
-```
-
-### Pattern Overlays
-
-```css
-/* Background Textures - Currently Available */
-.particles          /* Animated particles */
-```
-
-## 💫 Glow Effects
-
-### Shadow Variations
-
-```css
-/* Glow Effect Library - Currently Available */
-.shadow-glow        /* Interactive glow */
-.shadow-glow-lg     /* Large glow effect */
-```
-
-## 📱 Responsive Design
-
-### Breakpoint System
-
-```css
-/* Tailwind Breakpoints - Currently Used */
-sm:  640px   /* Small devices */
-md:  768px   /* Medium devices */
-lg:  1024px  /* Large devices */
-xl:  1280px  /* Extra large */
-2xl: 1536px  /* 2X large */
-```
-
-### Container Utilities
-
-```css
-/* Layout Containers - Currently Available */
-.container-framer   /* Max-width with responsive padding */
-.section-padding    /* Standard section spacing */
-```
-
-## 🎯 Spacing System
-
-### Custom Spacing
-
-```css
-/* Extended Spacing Scale - Currently Available */
-spacing-18:  4.5rem  (72px)
-spacing-88:  22rem   (352px)
-spacing-128: 32rem   (512px)
-spacing-144: 36rem   (576px)
-```
-
-## 🎪 Interactive States
-
-### Hover Effects
-
-```css
-/* Interaction Utilities - Currently Available */
-.transition-hover   /* Smooth transitions */
-```
-
-### Loading States
-
-```css
-/* Loading Animations - Currently Available */
-.loading-dots       /* Three dot animation */
-.loading-pulse      /* Pulse animation */
-```
-
-## 🔧 Implementation Guidelines
-
-### Component Structure
-
-```jsx
-// Consistent component pattern - Currently Used
-export const ComponentName = () => {
-  // Animation variants defined inline per component
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+```tsx
+// components/ExampleCard.tsx
+export const ExampleCard = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black" />
-
-      {/* Content container */}
-      <motion.div
-        className="container-framer relative z-10"
-        variants={variants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {/* Component content */}
-      </motion.div>
-    </section>
+    <div className="bg-background-secondary border border-border-primary rounded-xl p-6">
+      <h3 className="text-text-primary text-xl font-bold mb-2">
+        Card Title
+      </h3>
+      <p className="text-text-secondary text-base leading-relaxed">
+        This card automatically adapts to theme changes without any component modifications.
+      </p>
+      <button className="mt-4 bg-accent-primary text-white px-4 py-2 rounded-lg hover:bg-accent-secondary transition-colors">
+        Action Button
+      </button>
+    </div>
   );
 };
 ```
 
-### Animation Best Practices
+## 🎛️ Theme Management
 
-1. **Define animations inline** per component for better maintainability
-2. **Use viewport triggers** for scroll-based animations
-3. **Implement reduced motion** for accessibility
-4. **Optimize performance** with transform properties
-5. **Consistent easing** with Framer-style curves
+### ThemeContext Usage
 
-### Accessibility Standards
+[lib/ThemeContext.tsx](../lib/ThemeContext.tsx)
 
-1. **Proper color contrast** (WCAG AA)
-2. **Focus indicators** on all interactive elements
-3. **Semantic HTML** structure
-4. **Screen reader friendly** text
-5. **Keyboard navigation** support
+### Theme Application Flow
 
-### Performance Optimization
+1. **Theme Selection**: User selects theme via `setTheme('light' | 'dark')`
+2. **Context Update**: `ThemeContext` updates state and localStorage
+3. **CSS Variables**: Theme values applied to `document.documentElement.style`
+4. **Class Application**: Theme class added to `<html>` element
+5. **Global Propagation**: All components automatically receive new styles
 
-1. **Lazy load images** below the fold
-2. **Use CSS transforms** for animations
-3. **Minimize layout thrashing**
-4. **Optimize animation duration**
-5. **Implement will-change** for heavy animations
+```typescript
+// ThemeContext applies theme like this:
+useEffect(() => {
+  const root = document.documentElement;
+  const themeVars = themes[theme];
 
-## 🎨 Design Tokens Reference
+  // Apply CSS custom properties
+  Object.entries(themeVars).forEach(([key, value]) => {
+    root.style.setProperty(key, value);
+  });
 
-### CSS Custom Properties
-
-```css
-:root {
-  /* Colors */
-  --color-primary: #0ea5e9;
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-
-  /* Border radius */
-  --radius: 0.5rem;
-}
+  // Apply theme class for Tailwind compatibility
+  root.className = root.className.replace(/theme-\w+/g, '');
+  root.classList.add(`theme-${theme}`);
+}, [theme]);
 ```
 
-### Dark Theme Support
+## ➕ Adding New Themes
 
-```css
-.dark {
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
-  /* ... other dark theme values */
-}
+### Step 1: Define Theme in `themes.ts`
+
+```typescript
+// lib/themes.ts
+export const themes = {
+  light: { /* existing light theme */ },
+  dark: { /* existing dark theme */ },
+  // Add new theme
+  ocean: {
+    '--color-background-primary': '200 100% 5%',     // Deep ocean blue
+    '--color-background-secondary': '200 100% 8%',   // Darker ocean
+    '--color-background-tertiary': '200 100% 12%',   // Medium ocean
+    '--color-text-primary': '200 100% 95%',          // Light blue-white
+    '--color-text-secondary': '200 100% 75%',        // Medium blue
+    '--color-text-muted': '200 100% 55%',            // Darker blue
+    '--color-border-primary': '200 100% 20%',        // Ocean border
+    '--color-border-secondary': '200 100% 25%',      // Lighter ocean border
+    '--color-accent-primary': '180 100% 50%',        // Cyan accent
+    '--color-accent-secondary': '160 100% 50%',      // Teal accent
+    '--font-family-primary': 'Inter, sans-serif',
+  },
+} as const;
+
+export type ThemeName = keyof typeof themes; // Automatically includes 'ocean'
 ```
 
-## 📋 Component Checklist
+### Step 2: Add Theme Toggle Option
 
-When creating new components, ensure:
+Update the [components/ThemeToggle.tsx](../components/ThemeToggle.tsx)
 
-- [ ] Uses semantic HTML elements
-- [ ] Implements proper animation variants inline
-- [ ] Includes hover and focus states
-- [ ] Supports dark/light theme
-- [ ] Mobile-first responsive design
-- [ ] Proper TypeScript interfaces
-- [ ] Accessibility attributes
-- [ ] Performance optimizations
+```tsx
+// components/ThemeToggle.tsx
+export const ThemeToggle = () => {
+  const { theme, setTheme } = useTheme();
 
-## 🚀 Usage Examples
+  const themes = ['light', 'dark', 'ocean'] as const;
 
-### Hero Section Pattern
-
-```jsx
-<section className="relative flex min-h-screen items-center overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-60" />
-  <motion.div className="container-framer relative z-10">
-    <h1 className="text-4xl font-bold text-white lg:text-6xl">Your Hero Title</h1>
-  </motion.div>
-</section>
+  // rest of the code
+};
 ```
 
-### Card Grid Pattern
+### Step 3: No Component Changes Required!
 
-```jsx
-<motion.div
-  className="grid gap-8 lg:grid-cols-3"
-  variants={containerVariants}
-  initial="hidden"
-  whileInView="visible"
->
-  {items.map((item, index) => (
-    <motion.div
-      key={index}
-      variants={itemVariants}
-      className="rounded-2xl border border-gray-200 bg-white p-8 shadow-md"
+All existing components automatically support the new theme because they use semantic classes:
+
+```tsx
+// This component works with ALL themes without modification
+<div className="bg-background-primary text-text-primary">
+  Content automatically adapts to ocean theme!
+</div>
+```
+
+## 📏 Best Practices
+
+### ✅ DO's
+
+1. **Use semantic naming**: `text-primary` not `text-gray-900`
+2. **Leverage CSS custom properties**: All theme values are CSS variables
+3. **Follow HSL format**: Better for color manipulation and accessibility
+4. **Test all themes**: Ensure components work across all theme variations
+5. **Use design tokens**: Import from `design-tokens.ts` for type safety
+6. **Maintain consistency**: Use the same semantic names across all themes
+
+### ❌ DON'Ts
+
+1. **Don't hard-code colors**: Avoid `bg-white`, `text-black`, `border-gray-300`
+2. **Don't modify components for themes**: Themes should be component-agnostic
+3. **Don't use inline styles**: Use Tailwind classes with semantic names
+4. **Don't skip accessibility**: Ensure proper contrast ratios in all themes
+5. **Don't forget font families**: Include theme-specific typography
+6. **Don't break existing themes**: Test thoroughly when adding new themes
+
+### Color Contrast Guidelines
+
+```typescript
+// Ensure proper contrast ratios
+const contrastRatios = {
+  'text-primary on background-primary': '4.5:1 minimum',
+  'text-secondary on background-primary': '3:1 minimum',
+  'text-muted on background-primary': '3:1 minimum',
+  'accent colors on backgrounds': '4.5:1 minimum',
+};
+```
+
+## 🔄 Common Patterns
+
+### Card Component Pattern
+
+```tsx
+export const Card = ({ children, className = '' }) => (
+  <div className={`
+    bg-background-secondary
+    border border-border-primary
+    rounded-xl
+    p-6
+    shadow-lg
+    backdrop-blur-sm
+    transition-all
+    duration-300
+    hover:border-border-secondary
+    hover:bg-background-tertiary
+    hover:shadow-xl
+    hover:shadow-accent-primary/10
+    ${className}
+  `}>
+    {children}
+  </div>
+);
+```
+
+### Button Component Pattern
+
+```tsx
+export const Button = ({ variant = 'primary', children, ...props }) => {
+  const baseClasses = 'px-6 py-3 rounded-lg font-semibold transition-all duration-200';
+
+  const variants = {
+    primary: 'bg-accent-primary text-white hover:bg-accent-secondary',
+    secondary: 'bg-background-secondary text-text-primary border border-border-primary hover:bg-background-tertiary',
+    ghost: 'text-text-primary hover:bg-background-secondary',
+  };
+
+  return (
+    <button
+      className={`${baseClasses} ${variants[variant]}`}
+      {...props}
     >
-      {/* Card content */}
-    </motion.div>
-  ))}
-</motion.div>
+      {children}
+    </button>
+  );
+};
 ```
 
-## 🔄 Current Theme Implementation
+### Form Input Pattern
 
-### Theme Context
+```tsx
+export const Input = ({ error, ...props }) => (
+  <input
+    className={`
+      w-full
+      rounded-xl
+      border
+      bg-background-secondary
+      px-4
+      py-3
+      text-text-primary
+      placeholder-text-muted
+      backdrop-blur-sm
+      transition-all
+      duration-200
+      focus:border-accent-primary
+      focus:ring-2
+      focus:ring-accent-primary/20
+      focus:outline-none
+      ${error ? 'border-red-500' : 'border-border-primary'}
+    `}
+    {...props}
+  />
+);
+```
 
-- **Default**: Dark theme
-- **Storage**: LocalStorage persistence
-- **Toggle**: Available via ThemeToggle component in Header
-- **Usage**: Wraps entire app in ThemeProvider
+## 🐛 Troubleshooting
 
-### Dark Mode Classes
+### Common Issues
 
-- Uses Tailwind's `dark:` prefix system
-- CSS custom properties for theme switching
-- Automatic class management via ThemeContext
+#### 1. Colors Not Updating
 
-## 📝 Animation Implementation Notes
+**Problem**: Theme changes but colors don't update **Solution**: Check if you're using semantic
+classes, not hard-coded colors
 
-**Current Approach**: Each component defines its own animation variants inline rather than using a
-shared animations file. This approach:
+```tsx
+// ❌ Problem
+<div className="bg-white text-black">
 
-- Provides better component isolation
-- Makes animations more maintainable per component
-- Reduces bundle size by not importing unused animations
-- Allows for component-specific animation customization
+// ✅ Solution
+<div className="bg-background-primary text-text-primary">
+```
 
-This design system provides the foundation for a modern, interactive, and accessible web experience
-that matches Framer's sophisticated aesthetic while maintaining Echo Theory Labs' brand identity.
+#### 2. Font Not Changing
+
+**Problem**: Font family doesn't change with theme **Solution**: Ensure font is defined in theme and
+CSS variables are applied
+
+```typescript
+// Check themes.ts has font-family-primary defined
+// Check globals.css uses var(--font-family-primary)
+```
+
+#### 3. Build Errors
+
+**Problem**: TypeScript errors when adding new themes **Solution**: Update ThemeName type and ensure
+all themes have required properties
+
+```typescript
+// Ensure all themes have the same properties
+export type ThemeName = keyof typeof themes;
+```
+
+#### 4. Performance Issues
+
+**Problem**: Theme switching is slow **Solution**: Use CSS custom properties (already implemented)
+and avoid JavaScript color calculations
+
+### Debug Tools
+
+```tsx
+// Add to any component for debugging
+const DebugTheme = () => {
+  const { theme } = useTheme();
+
+  return (
+    <div className="fixed bottom-4 right-4 bg-background-secondary p-4 rounded-lg border border-border-primary">
+      <p className="text-text-primary">Current theme: {theme}</p>
+      <p className="text-text-secondary text-sm">
+        CSS Variables: {Object.keys(themes[theme]).join(', ')}
+      </p>
+    </div>
+  );
+};
+```
+
+## 📚 Resources
+
+- [CSS Custom Properties MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+- [Tailwind CSS Configuration](https://tailwindcss.com/docs/configuration)
+- [HSL Color Format](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl)
+- [WCAG Color Contrast Guidelines](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+
+---
+
+**Remember**: The design system is built for scalability. When in doubt, use semantic naming and let
+the theme system handle the rest! 🎨

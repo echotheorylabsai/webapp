@@ -84,24 +84,24 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-gray-900 to-black px-6 py-24 lg:py-32"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
         <motion.h2
-          className="mb-4 text-center font-mono text-3xl font-black tracking-tight text-white sm:mb-6 sm:text-4xl lg:text-5xl"
+          className="text-text-primary mb-4 text-center text-3xl font-black tracking-tight sm:mb-6 sm:text-4xl lg:text-5xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <span className="text-white">Ready to </span>
+          <span className="text-text-primary">Ready to </span>
           <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Transform Your Business?
           </span>
         </motion.h2>
 
         <motion.p
-          className="mx-auto mb-8 max-w-2xl text-base leading-relaxed font-light text-gray-400 sm:mb-12 sm:text-lg"
+          className="text-text-muted mx-auto mb-8 max-w-2xl text-base leading-relaxed font-light sm:mb-12 sm:text-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -149,7 +149,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="mb-2 block text-sm font-medium text-gray-300"
+                  className="text-text-secondary mb-2 block text-sm font-medium"
                 >
                   First Name
                 </label>
@@ -157,8 +157,10 @@ export const ContactSection = () => {
                   type="text"
                   id="firstName"
                   {...register('firstName')}
-                  className={`w-full rounded-xl border bg-gray-800/50 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
-                    errors.firstName ? 'border-red-500' : 'border-gray-600'
+                  className={`bg-background-secondary text-text-primary placeholder-text-muted focus:border-accent-primary focus:ring-accent-primary/20 w-full rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+                    errors.firstName
+                      ? 'border-red-500'
+                      : 'border-border-primary'
                   }`}
                   placeholder="Enter your first name"
                 />
@@ -171,7 +173,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="mb-2 block text-sm font-medium text-gray-300"
+                  className="text-text-secondary mb-2 block text-sm font-medium"
                 >
                   Last Name
                 </label>
@@ -179,8 +181,8 @@ export const ContactSection = () => {
                   type="text"
                   id="lastName"
                   {...register('lastName')}
-                  className={`w-full rounded-xl border bg-gray-800/50 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
-                    errors.lastName ? 'border-red-500' : 'border-gray-600'
+                  className={`bg-background-secondary text-text-primary placeholder-text-muted focus:border-accent-primary focus:ring-accent-primary/20 w-full rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+                    errors.lastName ? 'border-red-500' : 'border-border-primary'
                   }`}
                   placeholder="Enter your last name"
                 />
@@ -195,7 +197,7 @@ export const ContactSection = () => {
             <div>
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-gray-300"
+                className="text-text-secondary mb-2 block text-sm font-medium"
               >
                 Email Address
               </label>
@@ -203,8 +205,8 @@ export const ContactSection = () => {
                 type="email"
                 id="email"
                 {...register('email')}
-                className={`w-full rounded-xl border bg-gray-800/50 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
-                  errors.email ? 'border-red-500' : 'border-gray-600'
+                className={`bg-background-secondary text-text-primary placeholder-text-muted focus:border-accent-primary focus:ring-accent-primary/20 w-full rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+                  errors.email ? 'border-red-500' : 'border-border-primary'
                 }`}
                 placeholder="Enter your email address"
               />
@@ -218,7 +220,7 @@ export const ContactSection = () => {
             <div>
               <label
                 htmlFor="company"
-                className="mb-2 block text-sm font-medium text-gray-300"
+                className="text-text-secondary mb-2 block text-sm font-medium"
               >
                 Company Name
               </label>
@@ -226,8 +228,8 @@ export const ContactSection = () => {
                 type="text"
                 id="company"
                 {...register('company')}
-                className={`w-full rounded-xl border bg-gray-800/50 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
-                  errors.company ? 'border-red-500' : 'border-gray-600'
+                className={`bg-background-secondary text-text-primary placeholder-text-muted focus:border-accent-primary focus:ring-accent-primary/20 w-full rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+                  errors.company ? 'border-red-500' : 'border-border-primary'
                 }`}
                 placeholder="Enter your company name"
               />
@@ -241,7 +243,7 @@ export const ContactSection = () => {
             <div>
               <label
                 htmlFor="message"
-                className="mb-2 block text-sm font-medium text-gray-300"
+                className="text-text-secondary mb-2 block text-sm font-medium"
               >
                 Tell us about your AI needs
               </label>
@@ -249,8 +251,8 @@ export const ContactSection = () => {
                 id="message"
                 {...register('message')}
                 rows={4}
-                className={`w-full resize-none rounded-xl border bg-gray-800/50 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
-                  errors.message ? 'border-red-500' : 'border-gray-600'
+                className={`bg-background-secondary text-text-primary placeholder-text-muted focus:border-accent-primary focus:ring-accent-primary/20 w-full resize-none rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+                  errors.message ? 'border-red-500' : 'border-border-primary'
                 }`}
                 placeholder="Describe your current challenges and how AI could help..."
               />
@@ -266,7 +268,7 @@ export const ContactSection = () => {
               disabled={isSubmitting}
               className={`w-full rounded-xl px-6 py-3 font-semibold shadow-lg transition-all duration-200 ${
                 isSubmitting
-                  ? 'cursor-not-allowed bg-gray-600'
+                  ? 'bg-background-tertiary cursor-not-allowed'
                   : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:bg-purple-700 hover:shadow-xl hover:shadow-purple-500/25'
               }`}
               whileHover={!isSubmitting ? { scale: 1.02 } : {}}
@@ -307,10 +309,10 @@ export const ContactSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="mb-4 text-sm text-gray-400">
+          <p className="text-text-muted mb-4 text-sm">
             No commitment required • 30-minute consultation • Custom AI roadmap
           </p>
-          <div className="flex flex-col items-center justify-center gap-4 text-xs text-gray-500 sm:flex-row">
+          <div className="text-text-muted flex flex-col items-center justify-center gap-4 text-xs sm:flex-row">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-400"></div>
               <span>100% Free</span>
