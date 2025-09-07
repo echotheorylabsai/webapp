@@ -8,53 +8,53 @@ const faqs = [
   {
     question: 'Will AI replace my job, or can I use it to advance my career?',
     answer:
-      'AI enhances careers rather than replacing them. Professionals who master AI collaboration have significant competitive advantages. Our research shows each dollar invested in AI skills delivers $3.70 in career returns, with salary gains of $15,000-$50,000 within the first year. We teach you to direct AI systems while maintaining the strategic thinking and relationship skills that make you irreplaceable.',
+      'Think of AI as a powerful assistant that helps you shine in your career, not as a replacement. However, it is important to know that professionals and businesses with AI skills will have a significant competitive advantage going forward. By learning to work with AI, you can focus on what humans do best—strategic thinking, creativity, and building relationships—leading to significant career growth and salary increases.',
   },
   {
     question: 'How do I get started with AI if I have no technical background?',
     answer:
-      'Our human-centered approach requires zero technical experience. We start with your current workflows and gradually introduce AI solutions that feel natural—think learning advanced Excel rather than coding. Most clients become proficient in 2-3 weeks with immediate productivity gains. We focus on practical application, not theory.',
+      "You don't need any technical experience to start. We begin with the work you already do and show you how to use AI in simple, practical ways. It's more like learning a new software tool than learning to code. Most people feel comfortable and see results in just a few weeks because we focus on hands-on skills you can use right away.",
   },
   {
     question: 'What makes your approach different from generic AI courses?',
     answer:
-      'We combine AI Design Thinking with personalized, industry-specific training based on real market data. Instead of one-size-fits-all solutions, we focus on enhancing and embedding AI into your current workflows. We help you visualize and drive AI solutions where they make the most sense for your specific role and goals. While others teach theory, we provide hands-on experience with the exact tools your industry uses. Our training delivers proven results—67% faster campaign development in marketing, 90% adoption rates in software engineering. You learn practical skills with measurable ROI.',
+      "Unlike generic courses that teach theory, we focus entirely on you and your specific job. We tailor our training to your industry and role, teaching you how to use the exact AI tools that will make the biggest impact on your work. We believe in learning by doing, so you'll gain practical, hands-on experience that delivers real results.",
   },
   {
     question: 'How can AI skills help me land a high-paying job in 2025?',
     answer:
-      'AI proficiency is now a baseline requirement. Our research shows 98% of salespeople use AI-generated text, and 80% of software engineers need upskilling by 2027. We help you master in-demand skills like prompt engineering, agentic workflow design, and AI tool integration. Graduates report 25-40% productivity increases and salary bumps within 6 months.',
+      "In today's job market, knowing how to use AI gives you a major advantage. Companies are actively looking for professionals who can leverage AI to be more effective and innovative. We'll teach you the most in-demand skills, which can lead to significant salary increases and make you a top candidate for high-paying roles.",
   },
   {
     question:
       'What specific training do I need for my field—sales, marketing, or engineering?',
     answer:
-      'Sales/Marketing: Master agentic AI for lead qualification, personalized outreach, and tools like Salesforce Einstein and HubSpot AI. Engineering: Learn GitHub Copilot integration, agentic workflows, and ML basics for 30-50% efficiency gains. We customize training to your specific role and provide real project portfolios that demonstrate capabilities to employers.',
+      "We customize the training for your exact field to ensure it's relevant and impactful. For Sales & Marketing, you'll learn how to use AI for tasks like finding leads and creating personalized campaigns with industry-standard tools. For Engineering, you'll focus on using AI to write accurate code faster, automate tasks with agentic workflows, and streamline your projects. No matter your field, you'll build a portfolio of real projects to show employers what you can do.",
   },
   {
     question: "I'm a recent graduate—how does AI training help me get hired?",
     answer:
-      'Entry-level positions increasingly require AI familiarity, with new "AI engineer" roles combining development, data science, and ML knowledge. We provide hands-on experience with industry-standard tools and portfolio projects that showcase your capabilities. With 38% of companies adding AI tool budgets, opportunities are abundant for AI-skilled graduates.',
+      'As a recent graduate, having AI skills makes your resume stand out. Many companies now expect new hires to be comfortable with AI tools. We provide you with the hands-on experience and portfolio projects that prove you have the practical skills employers are looking for, opening up more job opportunities right from the start.',
   },
   {
     question: 'How quickly can my small business see revenue from AI?',
     answer:
-      'Our clients typically see results within 30 days. One accounting firm reduced paperwork by 62%, taking on additional clients without hiring. We start with quick wins—automated customer service and sales follow-ups—then scale to complex operations. Most businesses achieve 3-5x ROI within 90 days through time savings and increased capacity.',
+      'You can start seeing benefits very quickly, often within the first month. We begin with simple changes that offer immediate results, like automating customer service or sales tasks. Our clients often find they can grow their business and save significant time and money within the first 90 days.',
   },
   {
     question: 'Can my startup really compete with larger companies using AI?',
     answer:
-      'Absolutely. 91% of small businesses using AI report increased revenue. AI levels the playing field by providing enterprise-grade capabilities—24/7 customer service, predictive analytics, personalized marketing—without enterprise budgets. Tools like Brand24 give startups $99/month access to market intelligence that outmaneuvers larger competitors.',
+      'Yes, absolutely! AI is a powerful way for startups and small businesses to level the playing field. It gives you access to the same kinds of powerful tools that large companies use for marketing, customer service, and data analysis, but without the huge price tag. This allows you to work smarter, move faster, and compete effectively.',
   },
   {
     question: 'What can AI do for my business beyond customer service?',
     answer:
-      'AI transforms operations: automated invoice processing, predictive inventory management, staff scheduling, and cash flow forecasting. Small businesses save 5+ hours weekly (worth $6,500+ annually) through our automation. We identify highest-impact areas first, then systematically optimize your entire workflow.',
+      'AI can streamline almost every part of your business. Imagine automating tedious tasks like invoicing, predicting your inventory needs, or even optimizing staff schedules. By helping you identify where AI can have the biggest impact, we can free up your time to focus on what really matters—growing your business.',
   },
   {
     question: 'What is agentic AI and how is it different from chatbots?',
     answer:
-      'Agentic AI handles complex, multi-step processes autonomously. Instead of just answering questions, it qualifies leads, processes transactions, manages schedules, and makes decisions based on your business rules. Our agentic systems work 24/7, capturing after-hours opportunities—one client saw 35% booking increases from this alone.',
+      'Think of a standard chatbot as someone who can only answer questions. Agentic AI is like a proactive team member that can complete entire tasks on its own. For example, it can not only talk to a customer but also qualify them as a lead, schedule a meeting, and update your calendar—all without your direct involvement.',
   },
 ];
 
