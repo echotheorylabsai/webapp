@@ -83,7 +83,6 @@ echo-theory-labs/
 ### Form Handling & Validation
 
 - **React Hook Form 7.52.2** - Performant form library
-- **Zod 4.0.0** - TypeScript-first schema validation
 
 ### Development Tools
 
