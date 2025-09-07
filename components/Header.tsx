@@ -19,14 +19,14 @@ export const Header = () => {
 
   return (
     <header
-      className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md"
+      className="backdrop-blur-modern shadow-modern-sm sticky top-0 z-50 flex items-center justify-between px-6 py-4"
       style={{ backgroundColor: 'hsl(var(--color-background-primary) / 0.8)' }}
     >
       {/* Logo */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative rounded-full px-6 py-3 shadow-lg"
+        className="shadow-modern-md hover-glow relative rounded-full px-6 py-3"
       >
         {/* Animated border background */}
         <div
@@ -74,7 +74,7 @@ export const Header = () => {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="hidden rounded-full border-2 px-8 py-3 shadow-lg backdrop-blur-md md:flex"
+        className="nav-glow-container shadow-modern-md backdrop-blur-modern hidden rounded-full border-2 px-8 py-3 md:flex"
         style={{
           backgroundColor: 'hsl(var(--color-background-secondary))',
           borderColor: 'hsl(var(--color-text-primary))',
@@ -85,15 +85,8 @@ export const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-bold transition-colors duration-200"
+              className="hover-glow hover:text-primary rounded-lg px-3 py-1 text-sm font-bold transition-colors duration-200"
               style={{ color: 'hsl(var(--color-text-secondary))' }}
-              onMouseOver={e =>
-                (e.currentTarget.style.color = 'hsl(var(--color-text-primary))')
-              }
-              onMouseOut={e =>
-                (e.currentTarget.style.color =
-                  'hsl(var(--color-text-secondary))')
-              }
             >
               {item.name}
             </a>
@@ -109,7 +102,7 @@ export const Header = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden rounded-full border shadow-lg backdrop-blur-md md:block"
+          className="shadow-modern-md backdrop-blur-modern hover-glow hidden rounded-full border md:block"
           style={{
             backgroundColor: 'hsl(var(--color-background-secondary))',
             borderColor: 'hsl(var(--color-border-primary))',
@@ -117,11 +110,7 @@ export const Header = () => {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r px-6 py-3 text-sm font-bold text-white transition-all duration-200"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-            }}
+            className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold"
             whileHover={{ scale: 1.02, filter: 'brightness(1.1)' }}
             whileTap={{ scale: 0.98 }}
           >
@@ -131,7 +120,7 @@ export const Header = () => {
 
         {/* Mobile menu button */}
         <button
-          className="rounded-full border p-3 backdrop-blur-md md:hidden"
+          className="backdrop-blur-modern shadow-modern-sm hover-glow rounded-full border p-3 md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
           style={{
@@ -161,7 +150,7 @@ export const Header = () => {
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border py-4 backdrop-blur-md md:hidden"
+          className="backdrop-blur-modern shadow-modern-lg absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border py-4 md:hidden"
           style={{
             backgroundColor: 'hsl(var(--color-background-secondary))',
             borderColor: 'hsl(var(--color-border-primary))',
@@ -171,24 +160,16 @@ export const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              className="py-2 font-bold transition-colors duration-200"
+              className="hover-glow hover:text-primary rounded-lg px-4 py-2 font-bold transition-colors duration-200"
               style={{ color: 'hsl(var(--color-text-secondary))' }}
               onClick={() => setIsMobileMenuOpen(false)}
-              onMouseOver={e =>
-                (e.currentTarget.style.color = 'hsl(var(--color-text-primary))')
-              }
-              onMouseOut={e =>
-                (e.currentTarget.style.color =
-                  'hsl(var(--color-text-secondary))')
-              }
             >
               {item.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="mt-2 inline-flex items-center justify-center rounded-full px-6 py-2 text-sm font-bold text-white"
-            style={{ backgroundColor: 'hsl(var(--color-accent-primary))' }}
+            className="btn-primary mt-2 inline-flex items-center justify-center rounded-full px-6 py-2 text-sm font-bold"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Join waitlist

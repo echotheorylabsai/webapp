@@ -32,7 +32,7 @@ const businessSolutions: BusinessSolution[] = [
     title: 'Sales Acceleration',
     subtitle: 'AI-Powered Lead Intelligence and Customer Acquisition',
     description:
-      'AI transforms SMB sales from manual outreach to automated, data-driven pipelines. PwC forecasts AI could boost closing rates by 30%. Our solutions revolutionize:<ul class="list-disc list-inside space-y-1 ml-2"><li><b>Lead management</b></li><li><b>Customer Acquisition</b></li><li><b>Personalized Outreach</b></li><li><b>24/7 Sales Engagement</b></li><li><b>Customer Retention</b></li></ul>',
+      'AI transforms SMB sales from manual outreach to automated, data-driven pipelines. PwC forecasts AI could boost closing rates by 30%. Our solutions revolutionize:<ul class="list-disc list-inside space-y-1 ml-2"><li>Lead management</li><li>Customer Acquisition</li><li>Personalized Outreach</li><li>24/7 Sales Engagement</li><li>Customer Retention</li></ul>',
     impact: [
       '+35% quota achievement',
       '+30% conversion rates',
@@ -45,7 +45,7 @@ const businessSolutions: BusinessSolution[] = [
     title: 'Marketing Intelligence',
     subtitle: 'Competitive Analysis and Campaign Optimization',
     description:
-      '32.6% of small business owners now use AI for data analysis to generate business insights, improve customer satisfaction. Our marketing intelligence platform provides:<ul class="list-disc list-inside space-y-1 ml-2"><li><b>Advanced Business Analytics</b></li><li><b>Predictive Customer Insights</b></li><li><b>Personalized Content Creation</b></li><li><b>Competition Analysis</b></li><li><b>Pricing Optimization Strategies</b></li></ul>',
+      '32.6% of small business owners now use AI for data analysis to generate business insights, improve customer satisfaction. Our marketing intelligence platform provides:<ul class="list-disc list-inside space-y-1 ml-2"><li>Advanced Business Analytics</li><li>Predictive Customer Insights</li><li>Personalized Content Creation</li><li>Competition Analysis</li><li>Pricing Optimization Strategies</li></ul>',
     impact: [
       '+40% engagement rates',
       '+50% ROI improvement',
@@ -58,7 +58,7 @@ const businessSolutions: BusinessSolution[] = [
     title: 'Back-office Automation',
     subtitle: 'Streamline Your Operations and Customer Service',
     description:
-      'Operational transformation is the biggest advantage for resource-constrained small businesses—87% of SMB founders say entrepreneurs wear multiple hats. Our solutions streamline:<ul class="list-disc list-inside space-y-1 ml-2"><li><b>Administrative Task Automation</b></li><li><b>Resource Allocation Optimization</b></li><li><b>Supply Chain and Logistics</b></li><li><b>Inventory management systems</b></li><li><b>Customer Service Operations</b></li></ul>',
+      'Operational transformation is the biggest advantage for resource-constrained small businesses—87% of SMB founders say entrepreneurs wear multiple hats. Our solutions streamline:<ul class="list-disc list-inside space-y-1 ml-2"><li>Administrative Task Automation</li><li>Resource Allocation Optimization</li><li>Supply Chain and Logistics</li><li>Inventory management systems</li><li>Customer Service Operations</li></ul>',
     impact: [
       '+40% productivity boost',
       '+50% cost reduction',
@@ -314,7 +314,7 @@ export const ValueProposition = () => {
   return (
     <section
       id="businesses"
-      className="relative overflow-hidden bg-gradient-to-b from-[hsl(var(--color-background-secondary))] to-[hsl(var(--color-background-primary))] py-16 sm:py-24 lg:py-32"
+      className="from-background-secondary to-background-primary relative overflow-hidden bg-gradient-to-b py-16 sm:py-24 lg:py-32"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -322,15 +322,7 @@ export const ValueProposition = () => {
           description="Transform your business operations with custom AI solutions that deliver measurable results and competitive advantage."
         >
           <span>For </span>
-          <span
-            className="bg-gradient-to-r bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-            }}
-          >
-            SMBs and Startups
-          </span>
+          <span className="text-gradient-primary">SMBs and Startups</span>
         </SectionHeading>
 
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-3 lg:gap-16">
@@ -344,13 +336,9 @@ export const ValueProposition = () => {
               className="group" // The 'group' class triggers the hover effect
             >
               {/* === CARD WITH GLOW EFFECT === */}
-              <div className="card-glow-container h-full rounded-2xl">
+              <div className="card-glow-radial h-full rounded-2xl">
                 <motion.div
-                  className="relative h-full rounded-2xl border p-6 shadow-xl backdrop-blur-sm transition-colors duration-300 group-hover:border-[hsl(var(--color-accent-primary)_/_0.5)] sm:p-8"
-                  style={{
-                    backgroundColor: 'hsl(var(--color-background-secondary))',
-                    borderColor: 'hsl(var(--color-border-primary))',
-                  }}
+                  className="card-modern group-hover:border-accent-primary/50 relative h-full rounded-2xl p-6 transition-colors duration-300 sm:p-8"
                   whileHover={{
                     y: -8,
                     transition: { duration: 0.3, ease: 'easeOut' },
@@ -358,14 +346,7 @@ export const ValueProposition = () => {
                 >
                   <div className="flex h-full flex-col">
                     {/* Visual Section */}
-                    <div
-                      className="mb-6 flex h-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border"
-                      style={{
-                        borderColor: 'hsl(var(--color-border-secondary))',
-                        backgroundColor:
-                          'hsl(var(--color-background-tertiary))',
-                      }}
-                    >
+                    <div className="border-secondary bg-background-tertiary mb-6 flex h-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border">
                       {solution.visual === 'sales' && <SalesVisual />}
                       {solution.visual === 'marketing' && <MarketingVisual />}
                       {solution.visual === 'operations' && <OperationsVisual />}
@@ -373,44 +354,26 @@ export const ValueProposition = () => {
 
                     {/* Content Section */}
                     <div className="flex flex-1 flex-col">
-                      <motion.h3
-                        className="mb-4 flex-shrink-0 text-xl font-bold sm:text-2xl"
-                        style={{ color: 'hsl(var(--color-text-primary))' }}
-                      >
+                      <motion.h3 className="text-primary mb-4 flex-shrink-0 text-xl font-bold sm:text-2xl">
                         {solution.title}
-                        <span
-                          className="block bg-gradient-to-r bg-clip-text text-base text-transparent sm:text-lg"
-                          style={{
-                            backgroundImage:
-                              'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                          }}
-                        >
+                        <span className="text-gradient-primary block text-base sm:text-lg">
                           {solution.subtitle}
                         </span>
                       </motion.h3>
                       <div className="mb-4 min-h-24 flex-1 sm:min-h-28">
-                        <div
-                          className="text-sm leading-relaxed sm:text-base"
-                          style={{ color: 'hsl(var(--color-text-secondary))' }}
-                        >
+                        <div className="text-secondary text-sm leading-relaxed sm:text-base">
                           <FormattedList content={solution.description} />
                         </div>
                       </div>
                       <div className="flex-shrink-0 space-y-4">
-                        <h5
-                          className="text-center text-xs font-semibold tracking-wide uppercase"
-                          style={{ color: 'hsl(var(--color-text-primary))' }}
-                        >
+                        <h5 className="text-primary text-center text-xs font-semibold tracking-wide uppercase">
                           Key Impact
                         </h5>
                         <div className="flex flex-wrap justify-center gap-2">
                           {solution.impact.map((metric, i) => (
                             <motion.span
                               key={metric}
-                              className="rounded-full border border-current bg-gradient-to-r from-[hsl(var(--color-accent-primary)_/_0.2)] to-[hsl(var(--color-accent-secondary)_/_0.2)] px-2 py-1 text-xs font-medium sm:px-3"
-                              style={{
-                                color: 'hsl(var(--color-text-primary))',
-                              }}
+                              className="from-accent-primary/20 to-accent-secondary/20 text-primary rounded-full border border-current bg-gradient-to-r px-2 py-1 text-xs font-medium sm:px-3"
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               transition={{ delay: i * 0.1, duration: 0.3 }}
@@ -438,12 +401,7 @@ export const ValueProposition = () => {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r px-8 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:shadow-xl sm:px-10 sm:py-4 sm:text-lg"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-              filter: 'brightness(1.1)',
-            }}
+            className="btn-primary shadow-modern-lg hover:shadow-modern-xl inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold transition-all duration-200 sm:px-10 sm:py-4 sm:text-lg"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -476,32 +434,14 @@ export const ValueProposition = () => {
         >
           <SectionHeading
             level="h3"
-            description="Connect your existing workflow seamlessly. Our AI enhances the tools you already love."
+            description="Connect your existing workflow seamlessly. Our solutions enhance the tools you already love and integrate with your favorite tools."
           >
-            <span
-              className="bg-gradient-to-r bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-              }}
-            >
-              Seamless Integration
-            </span>
-            <span style={{ color: 'hsl(var(--color-text-primary))' }}>
-              {' '}
-              with Your Favorite Tools
-            </span>
+            <span className="text-gradient-primary">Seamless Integration</span>
+            <span className="text-primary"> with Your Favorite Tools</span>
           </SectionHeading>
 
           <div className="relative mt-8 overflow-hidden">
-            <div
-              className="relative rounded-2xl border p-8 backdrop-blur-sm"
-              style={{
-                borderColor: 'hsl(var(--color-border-primary))',
-                background:
-                  'linear-gradient(to bottom right, hsl(var(--color-background-secondary) / 0.02), hsl(var(--color-background-secondary) / 0.06))',
-              }}
-            >
+            <div className="border-primary backdrop-blur-modern from-background-secondary/2 to-background-secondary/6 relative rounded-2xl border bg-gradient-to-br p-8">
               {/* Top Row - Slides Right */}
               <div className="mb-8">
                 <motion.div
@@ -532,8 +472,7 @@ export const ValueProposition = () => {
                         />
                       </div>
                       <motion.p
-                        className="mt-2 text-center text-xs font-medium transition-colors duration-300"
-                        style={{ color: 'hsl(var(--color-text-secondary))' }}
+                        className="text-secondary mt-2 text-center text-xs font-medium transition-colors duration-300"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{
@@ -579,8 +518,7 @@ export const ValueProposition = () => {
                         />
                       </div>
                       <motion.p
-                        className="mt-2 text-center text-xs font-medium transition-colors duration-300"
-                        style={{ color: 'hsl(var(--color-text-secondary))' }}
+                        className="text-secondary mt-2 text-center text-xs font-medium transition-colors duration-300"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{
@@ -605,12 +543,7 @@ export const ValueProposition = () => {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 backdrop-blur-sm"
-                  style={{
-                    borderColor: 'hsl(var(--color-accent-primary) / 0.2)',
-                    background:
-                      'linear-gradient(to right, hsl(var(--color-accent-primary) / 0.1), hsl(var(--color-accent-secondary) / 0.1))',
-                  }}
+                  className="border-accent-primary/20 backdrop-blur-modern from-accent-primary/10 to-accent-secondary/10 inline-flex items-center gap-2 rounded-xl border bg-gradient-to-r px-4 py-2"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -624,10 +557,7 @@ export const ValueProposition = () => {
                   >
                     200+ Integrations
                   </span>
-                  <span
-                    className="text-sm"
-                    style={{ color: 'hsl(var(--color-text-secondary))' }}
-                  >
+                  <span className="text-secondary text-sm">
                     Endless Possibilities
                   </span>
                 </motion.div>

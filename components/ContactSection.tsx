@@ -52,35 +52,19 @@ const FormInput = ({
     <div>
       <label
         htmlFor={id}
-        className="mb-2 block text-sm font-medium"
-        style={{ color: 'hsl(var(--color-text-secondary))' }}
+        className="text-secondary mb-2 block text-sm font-medium"
       >
         {label}
       </label>
       <input
         id={id}
         {...register(id)}
-        className="w-full rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none"
-        style={
-          {
-            backgroundColor: 'hsl(var(--color-background-secondary))',
-            color: 'hsl(var(--color-text-primary))',
-            borderColor: error
-              ? 'hsl(var(--color-danger))'
-              : 'hsl(var(--color-border-primary))',
-            '--tw-ring-color': 'hsl(var(--color-accent-primary) / 0.2)',
-          } as React.CSSProperties
-        }
+        className={`input-modern w-full rounded-xl px-4 py-3 transition-all duration-200 focus:ring-2 focus:outline-none ${
+          error ? 'border-danger' : 'border-primary'
+        }`}
         {...props}
       />
-      {error && (
-        <p
-          className="mt-1 text-sm"
-          style={{ color: 'hsl(var(--color-danger))' }}
-        >
-          {error.message}
-        </p>
-      )}
+      {error && <p className="text-danger mt-1 text-sm">{error.message}</p>}
     </div>
   );
 };
@@ -97,8 +81,7 @@ const FormTextarea = ({
     <div>
       <label
         htmlFor={id}
-        className="mb-2 block text-sm font-medium"
-        style={{ color: 'hsl(var(--color-text-secondary))' }}
+        className="text-secondary mb-2 block text-sm font-medium"
       >
         {label}
       </label>
@@ -106,27 +89,12 @@ const FormTextarea = ({
         id={id}
         {...register(id)}
         rows={4}
-        className="w-full resize-none rounded-xl border px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none"
-        style={
-          {
-            backgroundColor: 'hsl(var(--color-background-secondary))',
-            color: 'hsl(var(--color-text-primary))',
-            borderColor: error
-              ? 'hsl(var(--color-danger))'
-              : 'hsl(var(--color-border-primary))',
-            '--tw-ring-color': 'hsl(var(--color-accent-primary) / 0.2)',
-          } as React.CSSProperties
-        }
+        className={`input-modern w-full resize-none rounded-xl px-4 py-3 transition-all duration-200 focus:ring-2 focus:outline-none ${
+          error ? 'border-danger' : 'border-primary'
+        }`}
         {...props}
       />
-      {error && (
-        <p
-          className="mt-1 text-sm"
-          style={{ color: 'hsl(var(--color-danger))' }}
-        >
-          {error.message}
-        </p>
-      )}
+      {error && <p className="text-danger mt-1 text-sm">{error.message}</p>}
     </div>
   );
 };
@@ -210,7 +178,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-[hsl(var(--color-background-secondary))] to-[hsl(var(--color-background-primary))] px-6 py-24 lg:py-32"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
@@ -218,13 +186,7 @@ export const ContactSection = () => {
           description="Get your free AI assessment and discover how our solutions can drive measurable results for your business."
         >
           <span>Ready to </span>
-          <span
-            className="block bg-gradient-to-r bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-            }}
-          >
+          <span className="text-gradient-primary block">
             Transform Your Business?
           </span>
         </SectionHeading>
@@ -240,15 +202,7 @@ export const ContactSection = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 rounded-xl border p-4 text-center backdrop-blur-sm"
-              style={{
-                background:
-                  'linear-gradient(135deg, hsl(var(--color-accent-primary) / 0.1), hsl(var(--color-accent-secondary) / 0.1))',
-                borderColor: 'hsl(var(--color-accent-primary) / 0.3)',
-                color: 'hsl(var(--color-text-primary))',
-                boxShadow:
-                  '0 4px 6px -1px hsl(var(--color-accent-primary) / 0.1), 0 2px 4px -1px hsl(var(--color-accent-secondary) / 0.1)',
-              }}
+              className="border-accent-primary/30 backdrop-blur-modern from-accent-primary/10 to-accent-secondary/10 text-primary shadow-modern-md mb-6 rounded-xl border bg-gradient-to-br p-4 text-center"
             >
               <span className="inline-flex items-center gap-2">
                 <span className="text-lg">✓</span>
@@ -263,12 +217,7 @@ export const ContactSection = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 rounded-xl border p-4 text-center"
-              style={{
-                backgroundColor: 'hsl(var(--color-danger) / 0.1)',
-                borderColor: 'hsl(var(--color-danger) / 0.2)',
-                color: 'hsl(var(--color-danger))',
-              }}
+              className="border-danger/20 bg-danger/10 text-danger mb-6 rounded-xl border p-4 text-center"
             >
               ✗ Sorry, there was an error. Please try again.
             </motion.div>
@@ -326,15 +275,11 @@ export const ContactSection = () => {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-xl px-6 py-3 font-semibold text-white shadow-lg transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
-              style={{
-                backgroundImage: isSubmitting
-                  ? 'none'
-                  : 'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                backgroundColor: isSubmitting
-                  ? 'hsl(var(--color-background-tertiary))'
-                  : 'transparent',
-              }}
+              className={`shadow-modern-lg w-full rounded-xl px-6 py-3 font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 ${
+                isSubmitting
+                  ? 'bg-background-tertiary text-primary'
+                  : 'btn-primary'
+              }`}
               whileHover={
                 !isSubmitting ? { scale: 1.02, filter: 'brightness(1.1)' } : {}
               }

@@ -14,7 +14,7 @@ export const LocalFocus = () => {
   return (
     <section
       id="about"
-      className="bg-gradient-to-b from-[hsl(var(--color-background-secondary))] to-[hsl(var(--color-background-primary))] px-6 py-24 text-center lg:py-32"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-24 text-center lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         {/* Mobile Layout: Flex column with specific order */}
@@ -31,15 +31,7 @@ export const LocalFocus = () => {
               className="!mb-4 text-left !tracking-normal"
             >
               Proudly Serving the{' '}
-              <span
-                className="bg-gradient-to-r bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                }}
-              >
-                Triangle
-              </span>
+              <span className="text-gradient-primary">Triangle</span>
             </SectionHeading>
           </motion.div>
 
@@ -51,13 +43,7 @@ export const LocalFocus = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div
-              className="h-[576px] w-full overflow-hidden rounded-3xl border backdrop-blur-sm"
-              style={{
-                backgroundColor: 'hsl(var(--color-background-primary) / 0.2)',
-                borderColor: 'hsl(var(--color-border-primary))',
-              }}
-            >
+            <div className="border-primary bg-background-primary/20 backdrop-blur-modern h-[576px] w-full overflow-hidden rounded-3xl border">
               <video
                 className="h-full w-full object-cover"
                 autoPlay
@@ -80,8 +66,7 @@ export const LocalFocus = () => {
             viewport={{ once: true }}
           >
             <motion.p
-              className="text-xl leading-relaxed font-light"
-              style={{ color: 'hsl(var(--color-text-secondary))' }}
+              className="text-secondary text-xl leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -105,29 +90,16 @@ export const LocalFocus = () => {
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="rounded-xl border p-4 text-center backdrop-blur-sm"
-                  style={{
-                    backgroundColor:
-                      'hsl(var(--color-background-secondary) / 0.05)',
-                    borderColor: 'hsl(var(--color-border-primary))',
-                  }}
+                  className="border-primary backdrop-blur-modern bg-background-secondary/5 rounded-xl border p-4 text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div
-                    className="text-2xl font-bold"
-                    style={{ color: 'hsl(var(--color-text-primary))' }}
-                  >
+                  <div className="text-primary text-2xl font-bold">
                     {stat.value}
                   </div>
-                  <div
-                    className="text-sm"
-                    style={{ color: 'hsl(var(--color-text-muted))' }}
-                  >
-                    {stat.label}
-                  </div>
+                  <div className="text-muted text-sm">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -142,13 +114,7 @@ export const LocalFocus = () => {
           >
             <motion.a
               href="#businesses"
-              className="inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                boxShadow:
-                  '0 10px 15px -3px hsl(var(--color-accent-primary) / 0.25), 0 4px 6px -4px hsl(var(--color-accent-primary) / 0.25)',
-              }}
+              className="btn-primary shadow-modern-lg inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
               whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -182,20 +148,11 @@ export const LocalFocus = () => {
           >
             <SectionHeading level="h2" className="text-left !tracking-normal">
               Proudly Serving the{' '}
-              <span
-                className="bg-gradient-to-r bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                }}
-              >
-                Triangle
-              </span>
+              <span className="text-gradient-primary">Triangle</span>
             </SectionHeading>
 
             <motion.p
-              className="text-xl leading-relaxed font-light"
-              style={{ color: 'hsl(var(--color-text-secondary))' }}
+              className="text-secondary text-xl leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -219,42 +176,23 @@ export const LocalFocus = () => {
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="rounded-xl border p-4 text-center backdrop-blur-sm"
-                  style={{
-                    backgroundColor:
-                      'hsl(var(--color-background-secondary) / 0.05)',
-                    borderColor: 'hsl(var(--color-border-primary))',
-                  }}
+                  className="border-primary backdrop-blur-modern bg-background-secondary/5 rounded-xl border p-4 text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div
-                    className="text-2xl font-bold"
-                    style={{ color: 'hsl(var(--color-text-primary))' }}
-                  >
+                  <div className="text-primary text-2xl font-bold">
                     {stat.value}
                   </div>
-                  <div
-                    className="text-sm"
-                    style={{ color: 'hsl(var(--color-text-muted))' }}
-                  >
-                    {stat.label}
-                  </div>
+                  <div className="text-muted text-sm">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
 
             <motion.a
               href="#businesses"
-              className="inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                boxShadow:
-                  '0 10px 15px -3px hsl(var(--color-accent-primary) / 0.25), 0 4px 6px -4px hsl(var(--color-accent-primary) / 0.25)',
-              }}
+              className="btn-primary shadow-modern-lg inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -287,13 +225,7 @@ export const LocalFocus = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div
-              className="h-[576px] w-full overflow-hidden rounded-3xl border backdrop-blur-sm"
-              style={{
-                backgroundColor: 'hsl(var(--color-background-primary) / 0.2)',
-                borderColor: 'hsl(var(--color-border-primary))',
-              }}
-            >
+            <div className="border-primary bg-background-primary/20 backdrop-blur-modern h-[576px] w-full overflow-hidden rounded-3xl border">
               <video
                 className="h-full w-full object-cover"
                 autoPlay

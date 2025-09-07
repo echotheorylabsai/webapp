@@ -69,20 +69,12 @@ export const FAQ = () => {
   return (
     <section
       id="faq"
-      className="bg-gradient-to-b from-[hsl(var(--color-background-secondary))] to-[hsl(var(--color-background-primary))] px-6 py-16 lg:py-20"
+      className="from-background-secondary to-background-primary bg-gradient-to-b px-6 py-16 lg:py-20"
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading level="h2">
           <span>Frequently Asked </span>
-          <span
-            className="block bg-gradient-to-r bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-            }}
-          >
-            Questions
-          </span>
+          <span className="text-gradient-primary block">Questions</span>
         </SectionHeading>
 
         <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:mt-12 sm:gap-4">
@@ -96,30 +88,22 @@ export const FAQ = () => {
             >
               <motion.button
                 onClick={() => toggleFAQ(index)}
-                className="w-full rounded-xl border p-4 text-left shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl sm:p-5"
+                className={`backdrop-blur-modern w-full rounded-xl border p-4 text-left transition-all duration-300 sm:p-5 ${
+                  openIndex === index
+                    ? 'border-secondary shadow-modern-focus'
+                    : 'border-primary shadow-modern-sm hover:shadow-modern-md'
+                }`}
                 style={{
                   backgroundColor: 'hsl(var(--color-background-secondary))',
-                  borderColor:
-                    openIndex === index
-                      ? 'hsl(var(--color-border-secondary))'
-                      : 'hsl(var(--color-border-primary))',
-                  boxShadow:
-                    openIndex === index
-                      ? '0 10px 15px -3px hsl(var(--color-accent-primary) / 0.1)'
-                      : 'none',
                 }}
                 whileHover={{ y: -2 }}
               >
                 <div className="flex items-center justify-between">
-                  <h3
-                    className="text-base font-semibold sm:text-lg"
-                    style={{ color: 'hsl(var(--color-text-primary))' }}
-                  >
+                  <h3 className="text-primary text-base font-semibold sm:text-lg">
                     {faq.question}
                   </h3>
                   <motion.svg
-                    className="h-4 w-4 shrink-0 transition-transform duration-300 sm:h-5 sm:w-5"
-                    style={{ color: 'hsl(var(--color-text-muted))' }}
+                    className="text-muted h-4 w-4 shrink-0 transition-transform duration-300 sm:h-5 sm:w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -143,10 +127,7 @@ export const FAQ = () => {
                   }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
-                  <p
-                    className="pt-2 text-sm leading-relaxed sm:text-base"
-                    style={{ color: 'hsl(var(--color-text-secondary))' }}
-                  >
+                  <p className="text-secondary pt-2 text-sm leading-relaxed sm:text-base">
                     {faq.answer}
                   </p>
                 </motion.div>
@@ -164,13 +145,7 @@ export const FAQ = () => {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-              boxShadow:
-                '0 10px 15px -3px hsl(var(--color-accent-primary) / 0.25), 0 4px 6px -4px hsl(var(--color-accent-primary) / 0.25)',
-            }}
+            className="btn-primary shadow-modern-lg inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold transition-all duration-200"
             whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
             whileTap={{ scale: 0.95 }}
           >

@@ -30,7 +30,7 @@ const professionalTracks: ProfessionalTrack[] = [
     title: 'Sales Professionals',
     subtitle: 'AI-Powered Sales Excellence',
     description:
-      'Gen AI and agentic workflows have shifted sales from manual grunt work to strategic relationship-building, with Bain reporting <b>potential 20-30% conversion boosts by freeing up 40% of selling time.</b><br> Transform your sales process with AI that enhances your existing workflows.',
+      'Gen AI and agentic workflows have shifted sales from manual grunt work to strategic relationship-building, with Bain reporting potential 20-30% conversion boosts by freeing up 40% of selling time.<br> Transform your sales process with AI that enhances your existing workflows.',
     keySkills: [
       'Lead Generation and Qualification',
       'Hyper-Personalized Outreach',
@@ -46,7 +46,7 @@ const professionalTracks: ProfessionalTrack[] = [
     title: 'Marketing Professionals',
     subtitle: 'Intelligent Campaign Mastery',
     description:
-      'AI-enhanced processes <b>can reduce total campaign development time from 264 hours to 88 hours - a 67% improvement.</b> Elevate your marketing with AI that complements your current strategies. <br>Master content generation, audience segmentation, and campaign optimization.',
+      'AI-enhanced processes can reduce total campaign development time from 264 hours to 88 hours - a 67% improvement. Elevate your marketing with AI that complements your current strategies. <br>Master content generation, audience segmentation, and campaign optimization.',
     keySkills: [
       'Content Creation',
       'Campaign Optimization',
@@ -63,7 +63,7 @@ const professionalTracks: ProfessionalTrack[] = [
     title: 'Software Engineers',
     subtitle: 'Agentic Software Development',
     description:
-      'Software engineering has seen explosive AI adoption: <b>90% of engineering teams now use AI coding tools, up from 61% with a 25% increase in productivity.</b> <br>Upskill and supercharge your career with Gen AI tools and gain a competitive edge in the job market.',
+      'Software engineering has seen explosive AI adoption: 90% of engineering teams now use AI coding tools, up from 61% with a 25% increase in productivity. <br>Upskill and supercharge your career with Gen AI tools and gain a competitive edge in the job market.',
     keySkills: [
       'AI Engineering',
       'Advanced Prompt Engineering',
@@ -119,7 +119,7 @@ export const ServicesOverview = () => {
   return (
     <section
       id="professionals"
-      className="bg-gradient-to-b from-[hsl(var(--color-background-primary))] to-[hsl(var(--color-background-secondary))] px-4 py-16 sm:px-6 sm:py-24 lg:py-32"
+      className="from-background-primary to-background-secondary bg-gradient-to-b px-4 py-16 sm:px-6 sm:py-24 lg:py-32"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -127,15 +127,7 @@ export const ServicesOverview = () => {
           description="Personalized AI training that enhances your existing workflows, not replaces them. Learn the latest GenAI and Agentic solutions relevant to your role."
         >
           <span>For </span>
-          <span
-            className="bg-gradient-to-r bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-            }}
-          >
-            Professionals
-          </span>
+          <span className="text-gradient-primary">Professionals</span>
         </SectionHeading>
 
         <div className="mb-16 sm:mb-24">
@@ -154,11 +146,7 @@ export const ServicesOverview = () => {
                 <div className="card-glow-radial h-full rounded-3xl">
                   {/* --- THIS IS THE FINAL CORRECTED IMPLEMENTATION --- */}
                   <motion.div
-                    className="relative h-full rounded-3xl border p-6 shadow-xl backdrop-blur-sm transition-colors duration-300 group-hover:border-[hsl(var(--color-accent-primary)_/_0.5)] sm:p-8"
-                    style={{
-                      backgroundColor: 'hsl(var(--color-background-secondary))',
-                      borderColor: 'hsl(var(--color-border-primary))',
-                    }}
+                    className="card-modern group-hover:border-accent-primary/50 relative h-full rounded-3xl p-6 transition-colors duration-300 sm:p-8"
                     whileHover={{
                       y: -5,
                       transition: { duration: 0.3, ease: 'easeOut' },
@@ -166,13 +154,7 @@ export const ServicesOverview = () => {
                   >
                     <div className="flex h-full flex-col">
                       <div className="mb-6 flex-shrink-0 text-center">
-                        <div
-                          className="relative mb-4 h-48 w-full overflow-hidden rounded-2xl bg-gradient-to-br shadow-lg sm:h-56"
-                          style={{
-                            backgroundImage:
-                              'linear-gradient(to bottom right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                          }}
-                        >
+                        <div className="from-accent-primary to-accent-secondary shadow-modern-lg relative mb-4 h-48 w-full overflow-hidden rounded-2xl bg-gradient-to-br sm:h-56">
                           <Image
                             src={track.icon}
                             alt={`${track.title} icon`}
@@ -181,47 +163,29 @@ export const ServicesOverview = () => {
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                         </div>
-                        <h4
-                          className="mb-2 text-xl font-bold sm:text-2xl"
-                          style={{ color: 'hsl(var(--color-text-primary))' }}
-                        >
+                        <h4 className="text-primary mb-2 text-xl font-bold sm:text-2xl">
                           {track.title}
                         </h4>
-                        <p
-                          className="bg-gradient-to-r bg-clip-text text-base font-semibold text-transparent sm:text-lg"
-                          style={{
-                            backgroundImage:
-                              'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
-                          }}
-                        >
+                        <p className="text-gradient-primary text-base font-semibold sm:text-lg">
                           {track.subtitle}
                         </p>
                       </div>
 
                       <div className="mb-6 flex min-h-24 flex-1 items-center sm:min-h-28">
-                        <div
-                          className="text-center text-sm leading-relaxed sm:text-base"
-                          style={{ color: 'hsl(var(--color-text-secondary))' }}
-                        >
+                        <div className="text-secondary text-center text-sm leading-relaxed sm:text-base">
                           <FormattedText text={track.description} />
                         </div>
                       </div>
 
                       <div className="mb-6 flex-shrink-0 space-y-3">
-                        <h5
-                          className="text-center text-xs font-semibold tracking-wide uppercase sm:text-sm"
-                          style={{ color: 'hsl(var(--color-text-primary))' }}
-                        >
+                        <h5 className="text-primary text-center text-xs font-semibold tracking-wide uppercase sm:text-sm">
                           Key Skills You&apos;ll Master
                         </h5>
                         <div className="flex flex-wrap justify-center gap-2">
                           {track.keySkills.map((skill, i) => (
                             <motion.span
                               key={skill}
-                              className="rounded-full border border-current bg-gradient-to-r from-[hsl(var(--color-accent-primary)_/_0.2)] to-[hsl(var(--color-accent-secondary)_/_0.2)] px-2 py-1 text-xs font-medium sm:px-3"
-                              style={{
-                                color: 'hsl(var(--color-text-primary))',
-                              }}
+                              className="from-accent-primary/20 to-accent-secondary/20 text-primary rounded-full border border-current bg-gradient-to-r px-2 py-1 text-xs font-medium sm:px-3"
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               transition={{ delay: i * 0.1, duration: 0.3 }}
@@ -272,23 +236,17 @@ export const ServicesOverview = () => {
                 />
                 <motion.div
                   variants={borderVariants}
-                  className="relative h-full rounded-2xl border bg-[hsl(var(--color-background-secondary))] p-6 shadow-lg backdrop-blur-sm"
+                  className="card-modern shadow-modern-lg backdrop-blur-modern relative h-full rounded-2xl p-6"
                 >
                   <div className="flex h-full flex-col">
                     <div className="mb-4 flex-shrink-0 text-center text-3xl sm:text-4xl">
                       {feature.icon}
                     </div>
-                    <h4
-                      className="mb-3 flex-shrink-0 text-center text-lg font-bold sm:text-xl"
-                      style={{ color: 'hsl(var(--color-text-primary))' }}
-                    >
+                    <h4 className="text-primary mb-3 flex-shrink-0 text-center text-lg font-bold sm:text-xl">
                       {feature.title}
                     </h4>
                     <div className="flex min-h-24 flex-1 items-center sm:min-h-28">
-                      <p
-                        className="text-center text-sm leading-relaxed sm:text-base"
-                        style={{ color: 'hsl(var(--color-text-secondary))' }}
-                      >
+                      <p className="text-secondary text-center text-sm leading-relaxed sm:text-base">
                         {feature.description}
                       </p>
                     </div>

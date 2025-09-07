@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="hover:bg-background-secondary rounded-full p-2 transition-colors duration-200"
+      className="hover:bg-background-secondary shadow-modern-sm hover-glow rounded-full p-2 transition-colors duration-200"
       aria-label="Toggle theme"
     >
       {isDark ? (

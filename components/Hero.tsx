@@ -7,7 +7,7 @@ export const Hero = () => {
       // Note: Gradient stops now use theme variables.
       // This requires you to add them to your tailwind.config.js if you want to use them as utilities.
       // For now, we will assume they are mapped correctly.
-      className="relative overflow-hidden bg-gradient-to-br from-[hsl(var(--color-background-primary))] via-[hsl(var(--color-background-primary))] to-[hsl(var(--color-background-secondary))] py-16 sm:py-24 lg:py-32"
+      className="from-background-primary via-background-primary to-background-secondary relative overflow-hidden bg-gradient-to-br py-16 sm:py-24 lg:py-32"
     >
       {/* Background pattern - Now uses CSS variables for theme-awareness */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-teal-900/20 to-emerald-900/20" />
@@ -26,26 +26,14 @@ export const Hero = () => {
           {/* Left side - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1
-                className="text-4xl leading-tight font-black tracking-tight sm:text-5xl lg:text-5xl xl:text-6xl"
-                style={{ color: 'hsl(var(--color-text-primary))' }}
-              >
+              <h1 className="text-primary text-4xl leading-tight font-black tracking-tight sm:text-5xl lg:text-5xl xl:text-6xl">
                 Harness AI,
-                <span
-                  className="block bg-gradient-to-r bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(to right, hsl(var(--color-accent-secondary)), hsl(var(--color-accent-primary)))',
-                  }}
-                >
+                <span className="text-gradient-primary block">
                   Lead the next wave.
                 </span>
               </h1>
 
-              <div
-                className="space-y-4 text-lg leading-relaxed font-light sm:text-xl"
-                style={{ color: 'hsl(var(--color-text-secondary))' }}
-              >
+              <div className="text-secondary space-y-4 text-lg leading-relaxed font-light sm:text-xl">
                 <p>
                   Get personalized AI training that future-proofs careers and
                   transforms business operations.
@@ -63,23 +51,13 @@ export const Hero = () => {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold shadow-2xl transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
-                style={{
-                  backgroundColor: 'hsl(var(--color-background-secondary))',
-                  color: 'hsl(var(--color-text-primary))',
-                  boxShadow:
-                    '0 25px 50px -12px hsl(var(--color-background-secondary) / 0.2)',
-                }}
+                className="btn-secondary shadow-modern-lg hover-glow inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
               >
                 Start Free Assessment
               </a>
               <a
                 href="#professionals"
-                className="inline-flex items-center justify-center rounded-2xl border-2 px-6 py-3 text-base font-semibold transition-all duration-300 hover:opacity-80 sm:px-8 sm:py-4 sm:text-lg"
-                style={{
-                  borderColor: 'hsl(var(--color-border-primary))',
-                  color: 'hsl(var(--color-text-primary))',
-                }}
+                className="btn-secondary shadow-modern-lg hover-glow inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
               >
                 See How It Works
               </a>
@@ -98,14 +76,7 @@ export const Hero = () => {
             />
 
             {/* Main video container */}
-            <div
-              className="relative overflow-hidden rounded-3xl border bg-gradient-to-br shadow-2xl backdrop-blur-sm"
-              style={{
-                borderColor: 'hsl(var(--color-accent-primary) / 0.3)',
-                backgroundImage:
-                  'linear-gradient(to bottom right, hsl(var(--color-background-secondary) / 0.5), hsl(var(--color-background-tertiary) / 0.5))',
-              }}
-            >
+            <div className="border-accent-primary/30 from-background-secondary/50 to-background-tertiary/50 shadow-modern-2xl backdrop-blur-modern relative overflow-hidden rounded-3xl border bg-gradient-to-br">
               <div className="aspect-square w-full">
                 <video
                   className="h-full w-full object-cover"
@@ -124,13 +95,7 @@ export const Hero = () => {
       </div>
 
       {/* Bottom gradient fade */}
-      <div
-        className="absolute right-0 bottom-0 left-0 h-32 bg-gradient-to-t to-transparent"
-        style={{
-          backgroundImage:
-            'linear-gradient(to top, hsl(var(--color-background-primary) / 0.5), transparent)',
-        }}
-      />
+      <div className="from-background-primary/50 absolute right-0 bottom-0 left-0 h-32 bg-gradient-to-t to-transparent" />
     </section>
   );
 };
