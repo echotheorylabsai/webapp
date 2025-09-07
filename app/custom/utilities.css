@@ -1,0 +1,83 @@
+/*
+ * =============================================================================
+ * Part 4: Custom Component Utilities
+ * =============================================================================
+ */
+@layer utilities {
+  /*
+    New and Improved Card Glow Effect
+    This creates a soft, blurred gradient behind the card that fades in on hover.
+  */
+  .card-glow-container {
+    position: relative;
+  }
+
+  .card-glow-container::before {
+    content: '';
+    position: absolute;
+    /* Inset by a larger negative value to make the glow appear further behind */
+    inset: -1rem;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom right,
+      hsl(var(--color-accent-primary)),
+      hsl(var(--color-accent-secondary))
+    );
+    /* A much larger blur for a softer effect */
+    filter: blur(2rem);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  .group:hover .card-glow-container::before {
+    /* A subtle opacity is key to the effect */
+    opacity: 0.15;
+  }
+
+  /* ================================================ */
+
+  /* For a soft, diffuse glow (like on the ServicesOverview cards) */
+  .card-glow-linear {
+    position: relative;
+  }
+  .card-glow-linear::before {
+    content: '';
+    position: absolute;
+    inset: -1rem;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom right,
+      hsl(var(--color-accent-primary)),
+      hsl(var(--color-accent-secondary))
+    );
+    filter: blur(2rem);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+  .group:hover .card-glow-linear::before {
+    opacity: 0.15;
+  }
+
+  /* For a more focused, intense glow (like on the ValueProposition cards) */
+  .card-glow-radial {
+    position: relative;
+  }
+  .card-glow-radial::before {
+    content: '';
+    position: absolute;
+    inset: -1rem;
+    z-index: -1;
+    /* The only change is the gradient function */
+    background: radial-gradient(
+      circle at center,
+      hsl(var(--color-accent-primary)),
+      hsl(var(--color-accent-secondary))
+    );
+    filter: blur(2.5rem); /* A slightly larger blur can enhance the effect */
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+  .group:hover .card-glow-radial::before {
+    opacity: 0.2; /* A slightly higher opacity for a stronger effect */
+  }
+}

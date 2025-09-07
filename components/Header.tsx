@@ -7,24 +7,49 @@ import { ThemeToggle } from './ThemeToggle';
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Define nav items in one place for reuse
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'Professionals', href: '#professionals' },
+    { name: 'Business', href: '#businesses' },
+    { name: 'About', href: '#about' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
-    <header className="bg-background-primary/80 sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md">
-      {/* Logo - Left oval container with animated border */}
+    <header
+      className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md"
+      style={{ backgroundColor: 'hsl(var(--color-background-primary) / 0.8)' }}
+    >
+      {/* Logo */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative rounded-full px-6 py-3 shadow-lg backdrop-blur-md"
+        className="relative rounded-full px-6 py-3 shadow-lg"
       >
         {/* Animated border background */}
-        <div className="absolute inset-0 animate-[border-race_3s_linear_infinite] rounded-full bg-gradient-to-r from-purple-500 via-cyan-500 via-pink-500 to-purple-500 bg-[length:300%_100%] p-[2px]">
-          <div className="bg-background-secondary flex h-full w-full items-center justify-center rounded-full">
+        <div
+          className="absolute inset-0 animate-[border-race_3s_linear_infinite] rounded-full bg-gradient-to-r bg-[length:300%_100%] p-[2px]"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, hsl(var(--color-accent-secondary)), hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
+          }}
+        >
+          <div
+            className="flex h-full w-full items-center justify-center rounded-full"
+            style={{
+              backgroundColor: 'hsl(var(--color-background-secondary))',
+            }}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-text-primary text-sm font-bold drop-shadow-lg"
+              className="text-sm font-bold drop-shadow-lg"
               style={{
+                color: 'hsl(var(--color-text-primary))',
                 textShadow:
-                  '0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3)',
+                  '0 0 10px hsl(var(--color-accent-secondary) / 0.5), 0 0 20px hsl(var(--color-accent-secondary) / 0.3)',
               }}
             >
               Echo Theory Labs
@@ -33,33 +58,42 @@ export const Header = () => {
         </div>
 
         {/* Glow effect */}
-        <div className="absolute inset-0 animate-[glow-pulse_2s_linear_infinite_alternate] rounded-full bg-gradient-to-r from-blue-500/30 via-teal-500/30 to-cyan-500/30 blur-sm"></div>
+        <div
+          className="absolute inset-0 animate-[glow-pulse_2s_linear_infinite_alternate] rounded-full bg-gradient-to-r blur-sm"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, hsl(var(--color-accent-primary) / 0.3), hsl(var(--color-accent-secondary) / 0.3))',
+          }}
+        />
 
-        {/* Content (invisible but maintains spacing) */}
-        <div className="text-text-primary invisible text-sm font-bold">
-          Echo Theory Labs
-        </div>
+        {/* Invisible content for spacing */}
+        <div className="invisible text-sm font-bold">Echo Theory Labs</div>
       </motion.div>
 
-      {/* Navigation - Center oval container */}
+      {/* Desktop Navigation */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-border-primary bg-background-secondary hidden rounded-full border px-8 py-3 shadow-lg backdrop-blur-md md:flex"
+        className="hidden rounded-full border-2 px-8 py-3 shadow-lg backdrop-blur-md md:flex"
+        style={{
+          backgroundColor: 'hsl(var(--color-background-secondary))',
+          borderColor: 'hsl(var(--color-text-primary))',
+        }}
       >
         <nav className="flex space-x-8">
-          {[
-            { name: 'Home', href: '#home' },
-            { name: 'Professionals', href: '#professionals' },
-            { name: 'Business', href: '#businesses' },
-            { name: 'About', href: '#about' },
-            { name: 'FAQ', href: '#faq' },
-            { name: 'Contact', href: '#contact' },
-          ].map(item => (
+          {navItems.map(item => (
             <a
               key={item.name}
               href={item.href}
-              className="text-text-secondary hover:text-text-primary text-sm font-bold transition-colors duration-200"
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: 'hsl(var(--color-text-secondary))' }}
+              onMouseOver={e =>
+                (e.currentTarget.style.color = 'hsl(var(--color-text-primary))')
+              }
+              onMouseOut={e =>
+                (e.currentTarget.style.color =
+                  'hsl(var(--color-text-secondary))')
+              }
             >
               {item.name}
             </a>
@@ -67,21 +101,28 @@ export const Header = () => {
         </nav>
       </motion.div>
 
-      {/* Right side - Theme Toggle and CTA Button */}
+      {/* Right side controls */}
       <div className="flex items-center space-x-4">
-        {/* Theme Toggle */}
         <ThemeToggle />
 
-        {/* CTA Button */}
+        {/* Desktop CTA */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="border-border-primary bg-background-secondary hidden rounded-full border shadow-lg backdrop-blur-md md:block"
+          className="hidden rounded-full border shadow-lg backdrop-blur-md md:block"
+          style={{
+            backgroundColor: 'hsl(var(--color-background-secondary))',
+            borderColor: 'hsl(var(--color-border-primary))',
+          }}
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
-            whileHover={{ scale: 1.02 }}
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r px-6 py-3 text-sm font-bold text-white transition-all duration-200"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))',
+            }}
+            whileHover={{ scale: 1.02, filter: 'brightness(1.1)' }}
             whileTap={{ scale: 0.98 }}
           >
             Contact Us
@@ -90,9 +131,14 @@ export const Header = () => {
 
         {/* Mobile menu button */}
         <button
-          className="border-border-primary bg-background-secondary text-text-primary rounded-full border p-3 backdrop-blur-md md:hidden"
+          className="rounded-full border p-3 backdrop-blur-md md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
+          style={{
+            backgroundColor: 'hsl(var(--color-background-secondary))',
+            borderColor: 'hsl(var(--color-border-primary))',
+            color: 'hsl(var(--color-text-primary))',
+          }}
         >
           <svg
             className="h-6 w-6"
@@ -115,27 +161,35 @@ export const Header = () => {
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="border-border-primary bg-background-secondary absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border py-4 backdrop-blur-md md:hidden"
+          className="absolute top-full right-6 left-6 mt-2 flex flex-col items-center rounded-2xl border py-4 backdrop-blur-md md:hidden"
+          style={{
+            backgroundColor: 'hsl(var(--color-background-secondary))',
+            borderColor: 'hsl(var(--color-border-primary))',
+          }}
         >
-          {[
-            { name: 'Home', href: '#home' },
-            { name: 'Professionals', href: '#professionals' },
-            { name: 'Business', href: '#businesses' },
-            { name: 'About', href: '#about' },
-            { name: 'FAQ', href: '#faq' },
-            { name: 'Contact', href: '#contact' },
-          ].map(item => (
+          {navItems.map(item => (
             <a
               key={item.name}
               href={item.href}
-              className="text-text-secondary hover:text-text-primary py-2 font-bold transition-colors duration-200"
+              className="py-2 font-bold transition-colors duration-200"
+              style={{ color: 'hsl(var(--color-text-secondary))' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              onMouseOver={e =>
+                (e.currentTarget.style.color = 'hsl(var(--color-text-primary))')
+              }
+              onMouseOut={e =>
+                (e.currentTarget.style.color =
+                  'hsl(var(--color-text-secondary))')
+              }
             >
               {item.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-2 text-sm font-bold text-white"
+            className="mt-2 inline-flex items-center justify-center rounded-full px-6 py-2 text-sm font-bold text-white"
+            style={{ backgroundColor: 'hsl(var(--color-accent-primary))' }}
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Join waitlist
           </a>

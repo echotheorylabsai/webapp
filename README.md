@@ -38,12 +38,13 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 
 ```
 echo-theory-labs/
-├── app/                          # Next.js App Router
+├── app/                         # Next.js App Router
+│   ├── custom/                  # custom CSS classes like utilities and animations
 │   ├── layout.tsx               # Root layout with theme provider
 │   ├── page.tsx                 # Main landing page
 │   ├── globals.css              # Global styles & Tailwind config
 │   └── favicon.ico              # Site favicon
-├── components/                   # React components
+├── components/                  # React components
 │   ├── Header.tsx               # Navigation with mobile menu
 │   ├── Hero.tsx                 # Hero section with AI visualization
 │   ├── ValueProposition.tsx     # Three-card benefits grid
@@ -55,15 +56,12 @@ echo-theory-labs/
 ├── lib/                         # Utilities & contexts
 │   ├── ThemeContext.tsx         # Theme management & context
 │   ├── themes.ts                # Theme definitions & CSS variables
-│   └── design-tokens.ts         # Semantic design token mappings
 ├── public/                      # Static assets
 │   ├── robots.txt              # SEO robots configuration
 │   └── sitemap.xml             # Site structure for SEO
 ├── .vscode/                     # VS Code configuration
 │   ├── settings.json           # Editor settings
 │   └── extensions.json         # Recommended extensions
-├── DESIGN_SYSTEM.md            # Comprehensive design guidelines
-├── DEV_SETUP.md               # Development environment guide
 └── [config files]             # ESLint, Prettier, TypeScript, etc.
 ```
 
@@ -160,43 +158,6 @@ echo-theory-labs/
 - Type-safe theme names and values
 - HSL color format for better manipulation
 
-#### `lib/design-tokens.ts`
-
-- Semantic design token mappings
-- Type-safe token definitions
-- Centralized design system values
-- Theme-agnostic component styling
-
-## 🎨 Design System
-
-### Theme System
-
-- **Default Theme**: Dark (DM Sans font family with modern, tech-focused aesthetics)
-- **Light Theme**: Inter font family with modern, clean, professional styling
-- **Semantic Colors**: Theme-aware color tokens (background-primary, text-primary, etc.)
-- **HSL Format**: Better color manipulation and accessibility
-- **CSS Custom Properties**: Runtime theme switching without component changes
-
-### Typography
-
-- **Default Theme**: DM Sans - Tech-focused, contemporary
-- **Light Theme**: Inter - Modern, clean, professional
-- **Responsive**: Fluid typography scaling (40-96px display, 30-64px headlines)
-- **Theme-Aware**: Font families automatically switch with themes
-
-### Animation Patterns
-
-- **Entrance**: Fade in with upward motion
-- **Stagger**: Sequential child animations
-- **Hover**: Scale and glow effects
-- **Scroll**: Viewport-triggered animations
-
-### Responsive Design
-
-- **Mobile-first**: Tailwind breakpoint system
-- **Breakpoints**: sm(640px), md(768px), lg(1024px), xl(1280px)
-- **Containers**: Max-width with responsive padding
-
 ## 🎯 Key Features
 
 ### Performance
@@ -205,28 +166,6 @@ echo-theory-labs/
 - **Image Optimization**: Next.js Image component
 - **Code Splitting**: Automatic bundle optimization
 - **SEO Ready**: Meta tags, sitemap, robots.txt
-
-### Accessibility
-
-- **WCAG AA Compliance**: Color contrast ratios
-- **Keyboard Navigation**: Full keyboard support
-- **Screen Readers**: Semantic HTML structure
-- **Focus Management**: Visible focus indicators
-
-### User Experience
-
-- **Smooth Animations**: 60fps Framer Motion
-- **Theme Switching**: Dark/light mode with font family changes
-- **Form Validation**: Real-time error feedback with theme-aware styling
-- **Mobile Responsive**: Touch-friendly interactions
-- **Accessibility**: WCAG AA compliant with proper contrast ratios
-
-### Business Features
-
-- **Lead Capture**: Contact form with validation
-- **Local Focus**: Triangle area targeting
-- **Social Proof**: Success metrics display
-- **Professional Branding**: AI consulting positioning
 
 ## ⚙️ Development Scripts
 
@@ -253,127 +192,6 @@ npm run type-check   # TypeScript validation
 npm run check-all    # Run all quality checks
 npm run fix-all      # Auto-fix all issues
 ```
-
-## 🎨 Styling Guidelines
-
-### Tailwind Classes
-
-- **Theme-aware patterns**: `bg-background-primary`, `text-text-primary`
-- **Semantic naming**: `border-border-primary`, `text-text-secondary`
-- **Responsive prefixes**: `md:text-4xl`, `lg:grid-cols-3`
-- **Hover states**: `hover:bg-background-secondary`, `hover:scale-1.02`
-- **Glass morphism**: `backdrop-blur-sm`, `bg-background-secondary/50`
-
-### Animation Implementation
-
-```tsx
-// Standard entrance animation
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
-
-// Usage in components
-<motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-  Content
-</motion.div>;
-```
-
-### Theme Integration
-
-```tsx
-// Access theme context
-const { theme, setTheme, isDark, toggleTheme } = useTheme();
-
-// Theme-aware styling (automatic via CSS custom properties)
-<div className="bg-background-primary text-text-primary">
-  Theme-aware content that automatically adapts
-</div>;
-
-// Theme switching
-<button onClick={() => setTheme('light')}>Light Theme</button>
-<button onClick={() => setTheme('dark')}>Dark Theme</button>
-```
-
-## 🧪 Development Environment
-
-### VS Code Setup
-
-- **Auto-formatting**: Format on save enabled
-- **Extensions**: TypeScript, ESLint, Prettier, Tailwind CSS
-- **Error detection**: Real-time TypeScript and ESLint feedback
-- **IntelliSense**: Full Tailwind class autocomplete
-
-### Code Standards
-
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Enforced code quality rules
-- **Prettier**: Consistent code formatting
-- **Import organization**: Automatic sorting
-
-## 📱 Responsive Design
-
-### Breakpoint Strategy
-
-- **Mobile-first**: Base styles for mobile
-- **Progressive enhancement**: Larger screens add complexity
-- **Touch-friendly**: 44px minimum touch targets
-- **Performance**: Conditional loading for larger screens
-
-### Layout Patterns
-
-```tsx
-// Responsive grid
-<div className="grid gap-8 lg:grid-cols-3">
-
-// Responsive typography
-<h1 className="text-4xl lg:text-6xl">
-
-// Responsive spacing
-<section className="py-16 lg:py-24">
-```
-
-## 🚀 Deployment
-
-### Build Process
-
-```bash
-npm run build        # Creates optimized production build
-npm start           # Serves production build locally
-```
-
-### Performance Targets
-
-- **Lighthouse Score**: >95 for all metrics
-- **Core Web Vitals**: LCP <2.5s, FID <100ms, CLS <0.1
-- **Bundle Size**: Optimized code splitting
-
-## 📚 Documentation
-
-- **[DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md)**: Complete design system guide with theme
-  architecture
-- **[DEV_SETUP.md](./docs/DEV_SETUP.md)**: Development environment setup
-- **Theme System**: Comprehensive guide for adding new themes and styling patterns
-- **Component Documentation**: JSDoc comments in source code
-
-## 🤝 Contributing
-
-### Before Committing
-
-1. Run `npm run check-all` to verify code quality
-2. Ensure all TypeScript errors are resolved
-3. Test responsive design across breakpoints
-4. Verify accessibility standards
-
-### Code Review Checklist
-
-- [ ] TypeScript types properly defined
-- [ ] Components use semantic theme-aware classes
-- [ ] No hard-coded colors (use `bg-background-primary` not `bg-white`)
-- [ ] Animations are performance-optimized
-- [ ] Responsive design implemented
-- [ ] Accessibility standards met
-- [ ] Theme compatibility verified
 
 ## 📞 Business Context
 

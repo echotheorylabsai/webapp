@@ -1,3 +1,5 @@
+// lib/ThemeContext.tsx
+
 'use client';
 
 import {
@@ -7,7 +9,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { themes, type ThemeName } from './themes';
+import { THEME_NAMES, type ThemeName } from './themes';
 
 interface ThemeContextType {
   theme: ThemeName;
@@ -19,39 +21,33 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeName>('dark'); // Default dark
+  // 'dark' is the default theme if nothing is in localStorage.
+  const [theme, setThemeState] = useState<ThemeName>('dark');
 
+  // This effect runs once on mount to get the stored theme.
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme') as ThemeName;
-    if (storedTheme && themes[storedTheme]) {
+    // Check if the stored theme is one of our valid themes.
+    if (storedTheme && THEME_NAMES.includes(storedTheme)) {
       setThemeState(storedTheme);
     }
   }, []);
 
+  // This is the function exposed to the app to change the theme.
   const setTheme = (newTheme: ThemeName) => {
     setThemeState(newTheme);
     localStorage.setItem('theme', newTheme);
   };
 
+  // This effect's only job is to sync the theme state to the <html> class.
   useEffect(() => {
     const root = document.documentElement;
-    const themeVars = themes[theme];
 
-    // Apply CSS custom properties
-    Object.entries(themeVars).forEach(([key, value]) => {
-      root.style.setProperty(key, value);
-    });
+    // Safely remove all possible theme classes.
+    root.classList.remove(...THEME_NAMES.map(name => `theme-${name}`));
 
-    // Apply theme class for Tailwind compatibility
-    root.className = root.className.replace(/theme-\w+/g, '');
+    // Add the current theme class.
     root.classList.add(`theme-${theme}`);
-
-    // Legacy dark mode support
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
   }, [theme]);
 
   const isDark = theme === 'dark';
@@ -66,6 +62,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
-  if (!context) throw new Error('useTheme must be used within ThemeProvider');
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
   return context;
 };

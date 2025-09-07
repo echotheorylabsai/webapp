@@ -1,0 +1,34 @@
+---
+description: This document is the single source of truth for all front-end styling and component development for this webapp. It outlines a strict, CSS-First, and theme-aware architecture. Apply these rules when generating or refactoring any React component (.tsx) or global style file (.css) to ensure consistency, maintainability, and theme responsiveness.
+alwaysApply: false
+---
+
+## 3. Component Styling Rules (JSX/TSX Files)
+
+- **Styling Method**: Use Tailwind CSS utility classes in the `className` attribute or an inline `style` object.
+- **Using Theme Colors**:
+  - **Primary Method**: For properties that lack a direct utility (like gradients), use an inline `style` object that references our CSS variables.
+    - **Correct**: `style={{ backgroundImage: 'linear-gradient(to right, hsl(var(--color-accent-primary)), hsl(var(--color-accent-secondary)))' }}`
+  - **Secondary Method**: For simple properties, use Tailwind's arbitrary value syntax.
+    - **Correct**: `className="border-[hsl(var(--color-border-primary))]"`
+- **Framer Motion**:
+  - Use `motion` components for all non-trivial animations.
+  - Define animations using `variants` at the top of the file.
+  - Always add a `whileHover` prop to animated cards to ensure hover state stability.
+- **Prohibitions**:
+  - **DO NOT** use CSS Modules, Styled Components, Emotion, or `<style>` tags.
+  - **DO NOT** use hard-coded values (`w-[123px]`, `text-blue-500`). All values must come from the design system or be justified as a one-off necessity.
+  - **DO NOT** use `@apply`. Create a reusable component or a custom utility class instead.
+
+---
+
+## 4. TypeScript & Accessibility Mandates
+
+- **TypeScript is Mandatory**:
+  - All component props **MUST** be explicitly typed using an `interface` or `type`.
+  - Use generics (`UseFormRegister<FormData>`) and `keyof` for strong type safety.
+  - To use a CSS Custom Property (e.g., `--tw-ring-color`) in an inline style, you **MUST** cast the style object: `style={{ ... } as React.CSSProperties}`.
+- **Accessibility is Mandatory**:
+  - Use semantic HTML (`<section>`, `<h2>`, `<nav>`).
+  - All interactive elements must have clear focus states (e.g., `focus:ring-2`).
+  - Provide `aria-label` attributes for icon-only buttons or ambiguous controls.
