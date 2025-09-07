@@ -181,13 +181,7 @@ export const ContactSection = () => {
     formData.append('from_name', 'Echo Theory Labs Contact Form');
     formData.append('botcheck', '');
 
-    // Split full name into first and last for the API
-    const nameParts = data.fullName.trim().split(' ');
-    const firstName = nameParts[0] || '';
-    const lastName = nameParts.slice(1).join(' ') || '';
-
-    formData.append('firstName', firstName);
-    formData.append('lastName', lastName);
+    formData.append('fullName', data.fullName);
     formData.append('email', data.email);
     formData.append('phone', data.phone);
     formData.append('company', data.company);
