@@ -27,22 +27,20 @@ export const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-primary text-4xl leading-tight font-black tracking-tight sm:text-5xl lg:text-5xl xl:text-6xl">
-                Harness AI,
+                AI Customer Support in 4 Weeks
                 <span className="text-gradient-primary block">
-                  Lead the next wave.
+                  ROI within 30 days for Series A/B SaaS
                 </span>
               </h1>
 
               <div className="text-secondary space-y-4 text-lg leading-relaxed font-light sm:text-xl">
                 <p>
-                  Get personalized AI training that future-proofs careers and
-                  transforms business operations.
+                  We build production-ready AI support for startups—fast, measurable, and engineered for scale.
                 </p>
                 <p>
-                  From professionals and job seekers breaking into competitive
-                  markets to small-businesses and startups automating for
-                  growth— master latest AI tools and agentic workflows that will
-                  make you irreplaceable in an intelligence-driven world.
+                  Our <strong>Echo Intelligence platform</strong> combines a free AI Readiness Assessment with
+                  implementation accelerators so you see ROI within 30 days—no
+                  retainers, no lock-ins.
                 </p>
               </div>
             </div>
@@ -53,13 +51,13 @@ export const Hero = () => {
                 href="#contact"
                 className="btn-secondary shadow-modern-lg hover-glow inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
               >
-                Start Free Assessment
+                Take the AI Readiness Assessment
               </a>
               <a
-                href="#professionals"
+                href="#businesses"
                 className="btn-secondary shadow-modern-lg hover-glow inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
               >
-                See How It Works
+                See How We're Different
               </a>
             </div>
           </div>

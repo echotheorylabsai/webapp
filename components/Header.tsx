@@ -10,7 +10,6 @@ export const Header = () => {
   // Define nav items in one place for reuse
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Professionals', href: '#professionals' },
     { name: 'Business', href: '#businesses' },
     { name: 'About', href: '#about' },
     { name: 'FAQ', href: '#faq' },
