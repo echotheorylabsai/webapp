@@ -9,8 +9,8 @@ export const Header = () => {
 
   // Define nav items in one place for reuse
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Platform', href: '#businesses' },
+  { name: 'Home', href: '#home' },
+  { name: 'Platform', href: '#platform' },
     { name: 'About', href: '#about' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },

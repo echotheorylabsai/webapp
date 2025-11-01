@@ -5,10 +5,10 @@ import { SectionHeading } from './SectionHeading';
 
 export const LocalFocus = () => {
   const stats = [
-    { label: 'NC Businesses Using AI', value: '50%' },
-    { label: 'AI Job Growth vs. Market', value: '3x' },
-    { label: 'Recent AI Investments', value: '$700M+' },
-    { label: 'Potential ROI for SMBs', value: 'Up to 5x' },
+    { label: 'Typical ticket deflection', value: '60%' },
+    { label: 'Time to production', value: '4 weeks' },
+    { label: 'ROI timeline', value: '30 days' },
+    { label: 'Integrations', value: '200+' },
   ];
 
   return (
@@ -30,8 +30,7 @@ export const LocalFocus = () => {
               level="h2"
               className="!mb-4 text-left !tracking-normal"
             >
-              Proudly Serving the{' '}
-              <span className="text-gradient-primary">Triangle</span>
+              Engineering <span className="text-gradient-primary">for the Triangle</span>
             </SectionHeading>
           </motion.div>
 
@@ -72,12 +71,10 @@ export const LocalFocus = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Raleigh-Durham is at the forefront of AI innovation, with 50% of
-              North Carolina businesses already embracing AI to drive growth and
-              efficiency. Small businesses are seeing average ROIs up to 5x on
-              AI investments, unlocking new opportunities in tech, biotech, and
-              beyond. Join this exciting transformation and position yourself or
-              your business for success in the AI era.
+              Raleigh‑Durham is a high‑velocity AI hub. Our engineering team
+              delivers production‑ready AI support for Series A/B SaaS — live in
+              4 weeks with measurable ROI in 30 days. Local presence, engineering
+              rigor, measurable outcomes.
             </motion.p>
 
             <motion.div
@@ -113,12 +110,12 @@ export const LocalFocus = () => {
             viewport={{ once: true }}
           >
             <motion.a
-              href="#businesses"
+              href="#platform"
               className="btn-primary shadow-modern-lg inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
               whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Explore Business Solutions</span>
+              <span>Take the AI Readiness Assessment</span>
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -147,8 +144,7 @@ export const LocalFocus = () => {
             viewport={{ once: true }}
           >
             <SectionHeading level="h2" className="text-left !tracking-normal">
-              Proudly Serving the{' '}
-              <span className="text-gradient-primary">Triangle</span>
+              Engineering <span className="text-gradient-primary">for the Triangle</span>
             </SectionHeading>
 
             <motion.p
@@ -158,12 +154,10 @@ export const LocalFocus = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Raleigh-Durham is at the forefront of AI innovation, with 50% of
-              North Carolina businesses already embracing AI to drive growth and
-              efficiency. Small businesses are seeing average ROIs up to 5x on
-              AI investments, unlocking new opportunities in tech, biotech, and
-              beyond. Join this exciting transformation and position yourself or
-              your business for success in the AI era.
+              Raleigh‑Durham is a high‑velocity AI hub. Our engineering team
+              delivers production‑ready AI support for Series A/B SaaS — live in
+              4 weeks with measurable ROI in 30 days. Local presence, engineering
+              rigor, measurable outcomes.
             </motion.p>
 
             <motion.div
@@ -191,7 +185,7 @@ export const LocalFocus = () => {
             </motion.div>
 
             <motion.a
-              href="#businesses"
+              href="#platform"
               className="btn-primary shadow-modern-lg inline-flex items-center justify-center gap-3 rounded-xl px-8 py-3 text-base font-semibold transition-all duration-200 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -200,7 +194,7 @@ export const LocalFocus = () => {
               whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Explore Business Solutions</span>
+              <span>Take the AI Readiness Assessment</span>
               <svg
                 className="h-5 w-5"
                 fill="none"

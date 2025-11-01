@@ -310,7 +310,7 @@ const ScaleVisual = () => (
 export const ValueProposition = () => {
   return (
     <section
-      id="businesses"
+    id="platform"
       className="from-background-secondary to-background-primary relative overflow-hidden bg-gradient-to-b py-16 sm:py-24 lg:py-32"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

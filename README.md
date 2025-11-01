@@ -1,7 +1,6 @@
-# Echo Theory Labs - AI Consulting Website
+# Echo Theory Labs — Echo Intelligence
 
-> Modern, responsive website for Echo Theory Labs LLC - a boutique AI consulting firm serving the
-> Raleigh-Durham Triangle area.
+> Production AI platform and implementation studio for Series A/B SaaS: engineering-first implementations, production in 4 weeks, measurable ROI in 30 days.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black)
 ![React](https://img.shields.io/badge/React-19.1.0-blue)
@@ -107,26 +106,25 @@ echo-theory-labs/
 - Interactive floating UI elements
 - Social proof metrics
 
+
 #### `ValueProposition.tsx`
 
-- Three-card grid layout
+- Three-card grid layout (Assessment → Implementation → Scale)
 - Staggered entrance animations
-- Interactive hover effects with glow
+- Product-focused copy and outcome-driven CTAs
 - Responsive design patterns
 
 #### `ServicesOverview.tsx`
 
-- Two-column service layout
-- Animated service cards with icons
-- Integrated testimonial section
-- Professional presentation
+- Echo Intelligence platform overview and engagement models
+- Implementation patterns, integrations, and pilot outcomes
+- Case study placeholders and technical capabilities
 
 #### `LocalFocus.tsx`
 
-- Triangle area targeting
-- Embedded Google Maps
+- Regional credibility for the Raleigh-Durham Triangle with engineering-first positioning
+- Local trust signals and customer metrics
 - Call-to-action integration
-- Local business focus
 
 #### `ContactSection.tsx`
 
@@ -159,12 +157,12 @@ echo-theory-labs/
 
 ## 🎯 Key Features
 
-### Performance
+### Production-Ready AI
 
-- **Server Components**: Optimized React 19 patterns
-- **Image Optimization**: Next.js Image component
-- **Code Splitting**: Automatic bundle optimization
-- **SEO Ready**: Meta tags, sitemap, robots.txt
+- Engineering-first implementations: production deployments in ~4 weeks
+- Platform integrations: helpdesk, CRM, knowledge bases, and observability
+- Rapid ROI: measurable gains within 30 days for typical engagements
+- Continuous optimization: monitoring, feedback loops, and model maintenance
 
 ## ⚙️ Development Scripts
 
@@ -194,12 +192,12 @@ npm run fix-all      # Auto-fix all issues
 
 ## 📞 Business Context
 
-Echo Theory Labs is a boutique AI consulting firm specializing in:
+Echo Theory Labs builds and implements Echo Intelligence — a production AI offering for Series A/B SaaS companies. We combine a platform, integrations, and engineering services to accelerate support automation and product-grade AI features.
 
-- **AI Training**: LangGraph, LangChain workshops for Triangle professionals
-- **Business Solutions**: Custom multi-agent systems for SMEs
-- **Local Focus**: Serving Raleigh-Durham area businesses
-- **Proven Results**: 93% success rate, 40% efficiency improvements
+- Assessment: AI Readiness Assessment and implementation roadmap
+- Implementation: production integrations and engineering pipelines (4-week delivery)
+- Scale: automation, observability, and continuous improvement for long-term ROI
+- Typical outcomes: high ticket deflection on routine cases, faster time-to-production, and measurable ROI within 30 days (pilot metrics available under NDA)
 
 ## 🔗 Related Resources
 
@@ -210,4 +208,4 @@ Echo Theory Labs is a boutique AI consulting firm specializing in:
 
 ---
 
-Built with ❤️ for the Triangle area AI community by Echo Theory Labs LLC.
+Built with practical engineering and outcomes-first design by Echo Theory Labs LLC.

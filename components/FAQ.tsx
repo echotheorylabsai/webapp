@@ -6,55 +6,34 @@ import { SectionHeading } from './SectionHeading';
 
 const faqs = [
   {
-    question: 'Will AI replace my job, or can I use it to advance my career?',
+    question: "Why can't we just use ChatGPT or Claude directly?",
     answer:
-      'Think of AI as a powerful assistant that helps you shine in your career, not as a replacement. However, it is important to know that professionals and businesses with AI skills will have a significant competitive advantage going forward. By learning to work with AI, you can focus on what humans do best—strategic thinking, creativity, and building relationships—leading to significant career growth and salary increases.',
+      "You can, but production AI support requires more than an LLM. It needs integration with your helpdesk, knowledge base, CRM, and communication tools, plus training data, escalation workflows, and continuous optimization. That's the engineering work that takes ~4 weeks, not the model itself.",
   },
   {
-    question: 'How do I get started with AI if I have no technical background?',
+    question: 'We have a technical team — why not build it ourselves?',
     answer:
-      "You don't need any technical experience to start. We begin with the work you already do and show you how to use AI in simple, practical ways. It's more like learning a new software tool than learning to code. Most people feel comfortable and see results in just a few weeks because we focus on hands-on skills you can use right away.",
+      'Custom builds typically cost 3–5x more and take 12–18 months. Your engineering team should focus on product, not rebuilding platform-grade support systems. We bring proven implementation patterns, integrations, and an engineering pipeline that gets you to production in 4 weeks.',
   },
   {
-    question: 'What makes your approach different from generic AI courses?',
+    question: "What if our knowledge base is a mess?",
     answer:
-      "Unlike generic courses that teach theory, we focus entirely on you and your specific job. We tailor our training to your industry and role, teaching you how to use the exact AI tools that will make the biggest impact on your work. We believe in learning by doing, so you'll gain practical, hands-on experience that delivers real results.",
+      "You're not alone — most companies have messy KBs. Our Knowledge Base Optimizer analyzes, restructures, deduplicates, and fills content gaps so AI can learn reliably. This reduces training time and speeds up launch.",
   },
   {
-    question: 'How can AI skills help me land a high-paying job in 2025?',
+    question: 'How long until we see ROI?',
     answer:
-      "In today's job market, knowing how to use AI gives you a major advantage. Companies are actively looking for professionals who can leverage AI to be more effective and innovative. We'll teach you the most in-demand skills, which can lead to significant salary increases and make you a top candidate for high-paying roles.",
+      'We aim for measurable benefits within 30 days; most companies see initial gains in 60–90 days and reach optimal performance in 90–120 days. Our engagements include optimization so the system improves quickly after launch.',
   },
   {
-    question:
-      'What specific training do I need for my field—sales, marketing, or engineering?',
+    question: "What's your success rate?",
     answer:
-      "We customize the training for your exact field to ensure it's relevant and impactful. For Sales & Marketing, you'll learn how to use AI for tasks like finding leads and creating personalized campaigns with industry-standard tools. For Engineering, you'll focus on using AI to write accurate code faster, automate tasks with agentic workflows, and streamline your projects. No matter your field, you'll build a portfolio of real projects to show employers what you can do.",
+      "We're launching publicly in Q1 2026. Our pilot implementations (under NDA) have hit the industry benchmarks cited on this site — ask for specific metrics during your assessment and we'll share what we can under NDA.",
   },
   {
-    question: "I'm a recent graduate—how does AI training help me get hired?",
+    question: 'Do you replace our support team?',
     answer:
-      'As a recent graduate, having AI skills makes your resume stand out. Many companies now expect new hires to be comfortable with AI tools. We provide you with the hands-on experience and portfolio projects that prove you have the practical skills employers are looking for, opening up more job opportunities right from the start.',
-  },
-  {
-    question: 'How quickly can my small business see revenue from AI?',
-    answer:
-      'You can start seeing benefits very quickly, often within the first month. We begin with simple changes that offer immediate results, like automating customer service or sales tasks. Our clients often find they can grow their business and save significant time and money within the first 90 days.',
-  },
-  {
-    question: 'Can my startup really compete with larger companies using AI?',
-    answer:
-      'Yes, absolutely! AI is a powerful way for startups and small businesses to level the playing field. It gives you access to the same kinds of powerful tools that large companies use for marketing, customer service, and data analysis, but without the huge price tag. This allows you to work smarter, move faster, and compete effectively.',
-  },
-  {
-    question: 'What can AI do for my business beyond customer service?',
-    answer:
-      'AI can streamline almost every part of your business. Imagine automating tedious tasks like invoicing, predicting your inventory needs, or even optimizing staff schedules. By helping you identify where AI can have the biggest impact, we can free up your time to focus on what really matters—growing your business.',
-  },
-  {
-    question: 'What is agentic AI and how is it different from chatbots?',
-    answer:
-      'Think of a standard chatbot as someone who can only answer questions. Agentic AI is like a proactive team member that can complete entire tasks on its own. For example, it can not only talk to a customer but also qualify them as a lead, schedule a meeting, and update your calendar—all without your direct involvement.',
+      'No. The winning approach is AI + humans: AI handles routine, high-volume tickets (often 60–70%) and humans focus on complex, high-value cases. We train your team to collaborate with AI rather than be replaced by it.',
   },
 ];
 

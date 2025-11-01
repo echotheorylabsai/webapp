@@ -183,11 +183,11 @@ export const ContactSection = () => {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           level="h2"
-          description="Get your free AI assessment and discover how our solutions can drive measurable results for your business."
+          description="Take the AI Readiness Assessment to receive a tailored implementation roadmap, 4-week delivery plan, and a 30-day ROI projection."
         >
           <span>Ready to </span>
           <span className="text-gradient-primary block">
-            Transform Your Business?
+            Deploy Production AI Support?
           </span>
         </SectionHeading>
 
@@ -207,7 +207,7 @@ export const ContactSection = () => {
               <span className="inline-flex items-center gap-2">
                 <span className="text-lg">✓</span>
                 <span className="font-medium">
-                  Thank you! We&apos;ll get back to you within 24 hours.
+                  Thank you — we&apos;ll respond within 24 hours with next steps and a short technical intake to scope your 4-week plan.
                 </span>
               </span>
             </motion.div>
@@ -219,7 +219,7 @@ export const ContactSection = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="border-danger/20 bg-danger/10 text-danger mb-6 rounded-xl border p-4 text-center"
             >
-              ✗ Sorry, there was an error. Please try again.
+              ✗ Submission failed. Please try again, or email hello@echotheorylabs.ai for assistance.
             </motion.div>
           )}
 
@@ -269,7 +269,7 @@ export const ContactSection = () => {
               label="Tell us about your AI needs"
               register={register}
               errors={errors}
-              placeholder="Describe your current challenges..."
+              placeholder="Share support volume, channels, tickets/month, knowledge-base status, and current tooling (e.g., Zendesk, Intercom)."
             />
 
             <motion.button
@@ -309,7 +309,7 @@ export const ContactSection = () => {
                   Sending...
                 </span>
               ) : (
-                'Get Your Free AI Assessment'
+                'Take the AI Readiness Assessment'
               )}
             </motion.button>
           </form>

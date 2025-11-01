@@ -7,7 +7,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AI Consulting Raleigh | Echo Theory Labs',
+  title: 'Harness AI with Echo Theory Labs',
   description:
     'Hands-on AI solutions and training for Triangle businesses and professionals. Multi-agent systems expertise for measurable ROI.',
   keywords:

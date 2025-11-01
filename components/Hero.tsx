@@ -54,7 +54,7 @@ export const Hero = () => {
                 Take the AI Readiness Assessment
               </a>
               <a
-                href="#businesses"
+                href="#platform"
                 className="btn-secondary shadow-modern-lg hover-glow inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-bold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-lg"
               >
                 See How We're Different

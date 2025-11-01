@@ -20,8 +20,7 @@ export const Footer = () => {
             Echo Theory Labs
           </h4>
           <p className="text-muted text-sm sm:text-base">
-            Your ambition, amplified by AI. For the work and careers of
-            tomorrow.
+            Cut the noise, transform your work — engineering-first, outcome obsessed, see ROI in 30 days.
           </p>
         </motion.div>
 
