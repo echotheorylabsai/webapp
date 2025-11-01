@@ -6,10 +6,7 @@ import { FormattedList } from './FormattedList';
 import { SectionHeading } from './SectionHeading';
 
 // --- Type Definitions ---
-type SolutionId =
-  | 'sales-acceleration'
-  | 'marketing-intelligence'
-  | 'operations-automation';
+type SolutionId = 'assess-and-plan' | 'echo-intelligence' | 'command-center';
 
 interface BusinessSolution {
   id: SolutionId;
@@ -17,7 +14,7 @@ interface BusinessSolution {
   subtitle: string;
   description: string;
   impact: string[];
-  visual: 'sales' | 'marketing' | 'operations';
+  visual: 'assessment' | 'platform' | 'scale';
 }
 
 interface Tool {
@@ -28,43 +25,43 @@ interface Tool {
 // --- Data (Now Pure and Style-Free) ---
 const businessSolutions: BusinessSolution[] = [
   {
-    id: 'sales-acceleration',
-    title: 'Sales Acceleration',
-    subtitle: 'AI-Powered Lead Intelligence and Customer Acquisition',
+    id: 'assess-and-plan',
+    title: 'AI Readiness Assessment',
+    subtitle: 'Start Your AI Support Journey in 15 Minutes',
     description:
-      'AI transforms SMB sales from manual outreach to automated, data-driven pipelines. PwC forecasts AI could boost closing rates by 30%. Our solutions revolutionize:<ul class="list-disc list-inside space-y-1 ml-2"><li>Lead management</li><li>Customer Acquisition</li><li>Personalized Outreach</li><li>24/7 Sales Engagement</li><li>Customer Retention</li></ul>',
+      'Begin with our free diagnostic tool that maps your path to AI support transformation:<ul class="list-disc list-inside space-y-1 ml-2"><li>Support Volume Analysis</li><li>Tech Stack Compatibility</li><li>Knowledge Base Evaluation</li><li>Implementation Roadmap</li><li>Custom ROI Calculator</li></ul>',
     impact: [
-      '+35% quota achievement',
-      '+30% conversion rates',
-      '+20% revenue growth',
+      'Clear Implementation Path',
+      'Accurate Cost Projection',
+      'Custom Success Metrics'
     ],
-    visual: 'sales',
+    visual: 'assessment',
   },
   {
-    id: 'marketing-intelligence',
-    title: 'Marketing Intelligence',
-    subtitle: 'Competitive Analysis and Campaign Optimization',
+    id: 'echo-intelligence',
+    title: '4-Week Implementation',
+    subtitle: 'Echo Intelligence Platform & Engineering',
     description:
-      '32.6% of small business owners now use AI for data analysis to generate business insights, improve customer satisfaction. Our marketing intelligence platform provides:<ul class="list-disc list-inside space-y-1 ml-2"><li>Advanced Business Analytics</li><li>Predictive Customer Insights</li><li>Personalized Content Creation</li><li>Competition Analysis</li><li>Pricing Optimization Strategies</li></ul>',
+      'Our engineering team delivers a complete AI support solution in max 4 weeks:<ul class="list-disc list-inside space-y-1 ml-2"><li>Knowledge Base Optimization</li><li>Custom AI Model Training</li><li>Integration Orchestra Setup</li><li>Workflow Automation</li><li>Production Deployment</li></ul>',
     impact: [
-      '+40% engagement rates',
-      '+50% ROI improvement',
-      '+30% customer retention',
+      '4-week delivery guarantee',
+      'No retainers or lock-ins',
+      'ROI within 30 days'
     ],
-    visual: 'marketing',
+    visual: 'platform',
   },
   {
-    id: 'operations-automation',
-    title: 'Back-office Automation',
-    subtitle: 'Streamline Your Operations and Customer Service',
+    id: 'command-center',
+    title: 'Scale & Optimize',
+    subtitle: 'Your AI Command Center',
     description:
-      'Operational transformation is the biggest advantage for resource-constrained small businesses—87% of SMB founders say entrepreneurs wear multiple hats. Our solutions streamline:<ul class="list-disc list-inside space-y-1 ml-2"><li>Administrative Task Automation</li><li>Resource Allocation Optimization</li><li>Supply Chain and Logistics</li><li>Inventory management systems</li><li>Customer Service Operations</li></ul>',
+      'Monitor, control, and scale your AI support operations from day one:<ul class="list-disc list-inside space-y-1 ml-2"><li>Real-time Analytics</li><li>Auto-learning System</li><li>Knowledge Gap Detection</li><li>Cost Controls</li><li>Performance Optimization</li></ul>',
     impact: [
-      '+40% productivity boost',
-      '+50% cost reduction',
-      '+60% automation rate',
+      '60% ticket reduction',
+      '24/7 support coverage',
+      'Continuous improvement'
     ],
-    visual: 'operations',
+    visual: 'scale',
   },
 ];
 
@@ -103,10 +100,10 @@ const bottomRowTools: Tool[] = [
 ];
 
 // --- Reusable Visual Components (Now Theme-Aware) ---
-const SalesVisual = () => (
+const AssessmentVisual = () => (
   <div className="relative flex h-full w-full items-center justify-center p-2">
     <div className="w-full max-w-xs space-y-3">
-      {['Lead Analysis', 'Personalization', 'Conversion'].map((step, i) => (
+      {['Analysis', 'Planning', 'Success'].map((step, i) => (
         <motion.div
           key={step}
           className="flex items-center gap-2"
@@ -153,7 +150,7 @@ const SalesVisual = () => (
   </div>
 );
 
-const MarketingVisual = () => (
+const PlatformVisual = () => (
   <div className="relative flex h-full w-full items-center justify-center p-2">
     <div className="relative h-28 w-28">
       <motion.div
@@ -200,7 +197,7 @@ const MarketingVisual = () => (
   </div>
 );
 
-const OperationsVisual = () => (
+const ScaleVisual = () => (
   <div className="relative flex h-full w-full items-center justify-center p-2">
     <div className="relative h-32 w-40">
       {/* Central Processing Node */}
@@ -319,10 +316,10 @@ export const ValueProposition = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           level="h2"
-          description="Transform your business operations with custom AI solutions that deliver measurable results and competitive advantage."
+          description="Raleigh's premier AI engineering lab, purpose-built for ambitious Series A/B companies. We turn support from a cost center into your technological edge."
         >
-          <span>For </span>
-          <span className="text-gradient-primary">SMBs and Startups</span>
+          <span>Engineering </span>
+          <span className="text-gradient-primary">New AI Realities</span>
         </SectionHeading>
 
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-3 lg:gap-16">
@@ -347,9 +344,9 @@ export const ValueProposition = () => {
                   <div className="flex h-full flex-col">
                     {/* Visual Section */}
                     <div className="border-secondary bg-background-tertiary mb-6 flex h-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border">
-                      {solution.visual === 'sales' && <SalesVisual />}
-                      {solution.visual === 'marketing' && <MarketingVisual />}
-                      {solution.visual === 'operations' && <OperationsVisual />}
+                      {solution.visual === 'assessment' && <AssessmentVisual />}
+                      {solution.visual === 'platform' && <PlatformVisual />}
+                      {solution.visual === 'scale' && <ScaleVisual />}
                     </div>
 
                     {/* Content Section */}
@@ -405,7 +402,7 @@ export const ValueProposition = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span>Get Your Free AI Assessment</span>
+            <span>Take the AI Readiness Assessment</span>
             <motion.svg
               className="h-4 w-4 sm:h-5 sm:w-5"
               fill="none"
